@@ -20,7 +20,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "com.example.android.uamp"
+        applicationId "com.umedia.android"
         minSdkVersion 17
         targetSdkVersion 26
         versionCode 2
