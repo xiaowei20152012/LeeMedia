@@ -45,12 +45,12 @@ public final class AlbumArtCache {
     private static final int BIG_BITMAP_INDEX = 0;
     private static final int ICON_BITMAP_INDEX = 1;
 
-    private final LruCache<String, Bitmap[]> mCache;
+    private final LruCache<String, Bitmap[]> cache;
 
-    private static final AlbumArtCache sInstance = new AlbumArtCache();
+    private static final AlbumArtCache instance = new AlbumArtCache();
 
     public static AlbumArtCache getInstance() {
-        return sInstance;
+        return instance;
     }
 
     private AlbumArtCache() {
@@ -58,7 +58,7 @@ public final class AlbumArtCache {
         // Integer.MAX_VALUE:
         int maxSize = Math.min(MAX_ALBUM_ART_CACHE_SIZE,
             (int) (Math.min(Integer.MAX_VALUE, Runtime.getRuntime().maxMemory()/4)));
-        mCache = new LruCache<String, Bitmap[]>(maxSize) {
+        cache = new LruCache<String, Bitmap[]>(maxSize) {
             @Override
             protected int sizeOf(String key, Bitmap[] value) {
                 return value[BIG_BITMAP_INDEX].getByteCount()
@@ -68,12 +68,12 @@ public final class AlbumArtCache {
     }
 
     public Bitmap getBigImage(String artUrl) {
-        Bitmap[] result = mCache.get(artUrl);
+        Bitmap[] result = cache.get(artUrl);
         return result == null ? null : result[BIG_BITMAP_INDEX];
     }
 
     public Bitmap getIconImage(String artUrl) {
-        Bitmap[] result = mCache.get(artUrl);
+        Bitmap[] result = cache.get(artUrl);
         return result == null ? null : result[ICON_BITMAP_INDEX];
     }
 
@@ -82,7 +82,7 @@ public final class AlbumArtCache {
         // are not handled properly: they may cause redundant costly operations, like HTTP
         // requests and bitmap rescales. For production-level apps, we recommend you use
         // a proper image loading library, like Glide.
-        Bitmap[] bitmap = mCache.get(artUrl);
+        Bitmap[] bitmap = cache.get(artUrl);
         if (bitmap != null) {
             LogHelper.d(TAG, "getOrFetch: album art is in cache, using it", artUrl);
             listener.onFetched(artUrl, bitmap[BIG_BITMAP_INDEX], bitmap[ICON_BITMAP_INDEX]);
@@ -100,12 +100,12 @@ public final class AlbumArtCache {
                     Bitmap icon = BitmapHelper.scaleBitmap(bitmap,
                         MAX_ART_WIDTH_ICON, MAX_ART_HEIGHT_ICON);
                     bitmaps = new Bitmap[] {bitmap, icon};
-                    mCache.put(artUrl, bitmaps);
+                    cache.put(artUrl, bitmaps);
                 } catch (IOException e) {
                     return null;
                 }
                 LogHelper.d(TAG, "doInBackground: putting bitmap in cache. cache size=" +
-                    mCache.size());
+                    cache.size());
                 return bitmaps;
             }
 

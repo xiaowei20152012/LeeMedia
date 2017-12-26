@@ -25,5 +25,9 @@
             android:id="@+id/navigation_playlists"
             android:icon="@drawable/ic_playlist_music_black_24dp"
             android:title="@string/drawer_playlists_title"/>
+        <item
+            android:id="@+id/navigation_newlists"
+            android:icon="@drawable/ic_playlist_music_black_24dp"
+            android:title="@string/drawer_newlists_title"/>
     </group>
 </menu>

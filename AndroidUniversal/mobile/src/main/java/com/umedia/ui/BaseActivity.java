@@ -41,8 +41,8 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
 
     private static final String TAG = LogHelper.makeLogTag(BaseActivity.class);
 
-    private MediaBrowserCompat mMediaBrowser;
-    private PlaybackControlsFragment mControlsFragment;
+    private MediaBrowserCompat mediaBrowser;
+    private PlaybackControlsFragment controlsFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,8 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
 
         // Connect a media browser just to get the media session token. There are other ways
         // this can be done, for example by sharing the session token directly.
-        mMediaBrowser = new MediaBrowserCompat(this,
-            new ComponentName(this, MusicService.class), mConnectionCallback, null);
+        mediaBrowser = new MediaBrowserCompat(this,
+            new ComponentName(this, MusicService.class), connectionCallback, null);
     }
 
     @Override
@@ -73,15 +73,15 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
         super.onStart();
         LogHelper.d(TAG, "Activity onStart");
 
-        mControlsFragment = (PlaybackControlsFragment) getFragmentManager()
+        controlsFragment = (PlaybackControlsFragment) getFragmentManager()
             .findFragmentById(R.id.fragment_playback_controls);
-        if (mControlsFragment == null) {
+        if (controlsFragment == null) {
             throw new IllegalStateException("Mising fragment with id 'controls'. Cannot continue.");
         }
 
         hidePlaybackControls();
 
-        mMediaBrowser.connect();
+        mediaBrowser.connect();
     }
 
     @Override
@@ -92,12 +92,12 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
         if (controllerCompat != null) {
             controllerCompat.unregisterCallback(mMediaControllerCallback);
         }
-        mMediaBrowser.disconnect();
+        mediaBrowser.disconnect();
     }
 
     @Override
     public MediaBrowserCompat getMediaBrowser() {
-        return mMediaBrowser;
+        return mediaBrowser;
     }
 
     protected void onMediaControllerConnected() {
@@ -111,7 +111,7 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
                 .setCustomAnimations(
                     R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom,
                     R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom)
-                .show(mControlsFragment)
+                .show(controlsFragment)
                 .commit();
         }
     }
@@ -119,7 +119,7 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
     protected void hidePlaybackControls() {
         LogHelper.d(TAG, "hidePlaybackControls");
         getFragmentManager().beginTransaction()
-            .hide(mControlsFragment)
+            .hide(controlsFragment)
             .commit();
     }
 
@@ -159,8 +159,8 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
             hidePlaybackControls();
         }
 
-        if (mControlsFragment != null) {
-            mControlsFragment.onConnected();
+        if (controlsFragment != null) {
+            controlsFragment.onConnected();
         }
 
         onMediaControllerConnected();
@@ -192,13 +192,13 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
             }
         };
 
-    private final MediaBrowserCompat.ConnectionCallback mConnectionCallback =
+    private final MediaBrowserCompat.ConnectionCallback connectionCallback =
         new MediaBrowserCompat.ConnectionCallback() {
             @Override
             public void onConnected() {
                 LogHelper.d(TAG, "onConnected");
                 try {
-                    connectToSession(mMediaBrowser.getSessionToken());
+                    connectToSession(mediaBrowser.getSessionToken());
                 } catch (RemoteException e) {
                     LogHelper.e(TAG, e, "could not connect media controller");
                     hidePlaybackControls();
