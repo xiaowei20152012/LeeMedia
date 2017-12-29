@@ -73,7 +73,7 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
         super.onStart();
         LogHelper.d(TAG, "Activity onStart");
 
-        controlsFragment = (PlaybackControlsFragment) getFragmentManager()
+        controlsFragment = (PlaybackControlsFragment) getSupportFragmentManager()
             .findFragmentById(R.id.fragment_playback_controls);
         if (controlsFragment == null) {
             throw new IllegalStateException("Mising fragment with id 'controls'. Cannot continue.");
@@ -107,7 +107,7 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
     protected void showPlaybackControls() {
         LogHelper.d(TAG, "showPlaybackControls");
         if (NetworkHelper.isOnline(this)) {
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(
                     R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom,
                     R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom)
@@ -118,7 +118,7 @@ public abstract class BaseActivity extends ActionBarCastActivity implements Medi
 
     protected void hidePlaybackControls() {
         LogHelper.d(TAG, "hidePlaybackControls");
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
             .hide(controlsFragment)
             .commit();
     }

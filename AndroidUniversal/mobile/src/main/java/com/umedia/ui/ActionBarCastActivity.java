@@ -16,7 +16,7 @@
 package com.umedia.ui;
 
 import android.app.ActivityOptions;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -102,6 +102,9 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
                     case R.id.navigation_playlists:
                         activityClass = PlaceholderActivity.class;
                         break;
+                    case R.id.navigation_newlists:
+                        activityClass = NewsListActivity.class;
+                    default:
                 }
                 if (activityClass != null) {
                     startActivity(new Intent(ActionBarCastActivity.this, activityClass), extras);
@@ -177,7 +180,7 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
         // Whenever the fragment back stack changes, we may need to update the
         // action bar toggle: only top level screens show the hamburger-like icon, inner
         // screens - either Activities or fragments - show the "Up" icon instead.
-        getFragmentManager().addOnBackStackChangedListener(mBackStackChangedListener);
+        getSupportFragmentManager().addOnBackStackChangedListener(mBackStackChangedListener);
     }
 
     @Override
@@ -195,7 +198,7 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
         if (castContext != null) {
             castContext.removeCastStateListener(castStateListener);
         }
-        getFragmentManager().removeOnBackStackChangedListener(mBackStackChangedListener);
+        getSupportFragmentManager().removeOnBackStackChangedListener(mBackStackChangedListener);
     }
 
     @Override
@@ -231,7 +234,7 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
             return;
         }
         // Otherwise, it may return to the previous fragment stack
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         if (fragmentManager.getBackStackEntryCount() > 0) {
             fragmentManager.popBackStack();
         } else {
@@ -297,6 +300,8 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
             navigationView.setCheckedItem(R.id.navigation_allmusic);
         } else if (PlaceholderActivity.class.isAssignableFrom(getClass())) {
             navigationView.setCheckedItem(R.id.navigation_playlists);
+        } else if (NewsListActivity.class.isAssignableFrom(getClass())) {
+            navigationView.setCheckedItem(R.id.navigation_newlists);
         }
     }
 
@@ -304,7 +309,7 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
         if (drawerToggle == null) {
             return;
         }
-        boolean isRoot = getFragmentManager().getBackStackEntryCount() == 0;
+        boolean isRoot = getSupportFragmentManager().getBackStackEntryCount() == 0;
         drawerToggle.setDrawerIndicatorEnabled(isRoot);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(!isRoot);

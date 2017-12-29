@@ -18,6 +18,21 @@
 // all sub-projects/modules.
 
 buildscript {
+
+    ext.wearable = '2.0.3'
+    ext.play_services_cast_framework = '11.0.1'
+    ext.appcompat_v7 = '26.1.0'
+    ext.cardview_v7 = '26.1.0'
+    ext.mediarouter_v7 = '26.1.0'
+    ext.leanback_v17 = '26.1.0'
+    ext.design = '26.1.0'
+    ext.exoplayer = 'r2.5.0'
+    ext.junit = '4.12'
+    ext.mockito_core = '1.10.19'
+    ext.support_annotations = '26.1.0'
+    ext.runner = '0.5'
+
+
     repositories {
         jcenter()
     }
@@ -31,7 +46,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 
         jcenter()
         maven {
