@@ -148,7 +148,7 @@ public abstract class ActionBarCastActivity extends AppCompatActivity {
                 GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
 
         if (playServicesAvailable == ConnectionResult.SUCCESS) {
-            castContext = CastContext.getSharedInstance(this);
+//            castContext = CastContext.getSharedInstance(this);
         }
     }
 

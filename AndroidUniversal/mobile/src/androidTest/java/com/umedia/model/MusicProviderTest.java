@@ -23,7 +23,7 @@ import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.MediaMetadataCompat;
 import android.test.mock.MockResources;
 
-import com.example.android.uamp.TestSetupHelper;
+import com.umedia.android.TestSetupHelper;
 import com.umedia.utils.MediaIDHelper;
 import com.umedia.utils.SimpleMusicProviderSource;
 

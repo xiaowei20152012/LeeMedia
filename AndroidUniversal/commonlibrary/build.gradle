@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     //add new
 
-    implementation 'com.squareup.okhttp:okhttp:2.7.5'
-    implementation 'com.google.code.gson:gson:2.2.4'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation "com.squareup.okhttp:okhttp:$okhttp"
+    implementation "com.google.code.gson:gson:$gson"
+    implementation "com.squareup.picasso:picasso:$picasso"
 }

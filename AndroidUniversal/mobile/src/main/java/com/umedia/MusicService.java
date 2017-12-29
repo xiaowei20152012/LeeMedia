@@ -122,10 +122,10 @@ public class MusicService extends MediaBrowserServiceCompat implements
     private static final String TAG = LogHelper.makeLogTag(MusicService.class);
 
     // Extra on MediaSession that contains the Cast device name currently connected to
-    public static final String EXTRA_CONNECTED_CAST = "com.example.android.uamp.CAST_NAME";
+    public static final String EXTRA_CONNECTED_CAST = "com.umedia.android.CAST_NAME";
     // The action of the incoming Intent indicating that it contains a command
     // to be executed (see {@link #onStartCommand})
-    public static final String ACTION_CMD = "com.example.android.uamp.ACTION_CMD";
+    public static final String ACTION_CMD = "com.umedia.android.ACTION_CMD";
     // The key in the extras of the incoming Intent indicating the command that
     // should be executed (see {@link #onStartCommand})
     public static final String CMD_NAME = "CMD_NAME";
@@ -232,10 +232,10 @@ public class MusicService extends MediaBrowserServiceCompat implements
                 GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
 
         if (!TvHelper.isTvUiMode(this) && playServicesAvailable == ConnectionResult.SUCCESS) {
-            mCastSessionManager = CastContext.getSharedInstance(this).getSessionManager();
-            mCastSessionManagerListener = new CastSessionManagerListener();
-            mCastSessionManager.addSessionManagerListener(mCastSessionManagerListener,
-                    CastSession.class);
+//            mCastSessionManager = CastContext.getSharedInstance(this).getSessionManager();
+//            mCastSessionManagerListener = new CastSessionManagerListener();
+//            mCastSessionManager.addSessionManagerListener(mCastSessionManagerListener,
+//                    CastSession.class);
         }
 
         mMediaRouter = MediaRouter.getInstance(getApplicationContext());

@@ -18,7 +18,9 @@
 // all sub-projects/modules.
 
 buildscript {
-
+    ext.okhttp='2.7.5'
+    ext.gson='2.2.4'
+    ext.picasso='2.5.2'
     ext.wearable = '2.0.3'
     ext.play_services_cast_framework = '11.0.1'
     ext.appcompat_v7 = '26.1.0'

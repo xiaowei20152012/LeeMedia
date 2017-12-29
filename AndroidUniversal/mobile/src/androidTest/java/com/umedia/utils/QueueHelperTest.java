@@ -21,7 +21,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 
-import com.example.android.uamp.TestSetupHelper;
+import com.umedia.android.TestSetupHelper;
 import com.umedia.model.MusicProvider;
 
 import org.junit.Before;

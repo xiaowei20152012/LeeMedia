@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.example.android.uamp;
+package com.umedia.android;
 
 import com.umedia.model.MusicProvider;
 import com.umedia.model.MusicProviderSource;

@@ -50,9 +50,9 @@ repositories {
 }
 
 dependencies {
-    provided "com.google.android.wearable:wearable:$wearable"
-    implementation "com.google.android.gms:play-services-cast-framework:$play_services_cast_framework"
-    implementation "com.google.android.support:wearable:$wearable"
+    provided 'com.google.android.wearable:wearable:2.0.3'
+    compile 'com.google.android.gms:play-services-cast-framework:11.0.1'
+    compile 'com.google.android.support:wearable:2.0.3'
     implementation "com.android.support:appcompat-v7:$appcompat_v7"
     //2.8M
     implementation "com.android.support:cardview-v7:$cardview_v7"
@@ -60,6 +60,9 @@ dependencies {
     implementation "com.android.support:leanback-v17:$leanback_v17"
     implementation "com.android.support:design:$design"
     implementation "com.google.android.exoplayer:exoplayer:$exoplayer"
+    implementation "com.squareup.okhttp:okhttp:$okhttp"
+    //    implementation "com.google.code.gson:gson:$gson"
+    //    implementation "com.squareup.picasso:picasso:$picasso"
     testCompile "junit:junit:$junit"
     testCompile "org.mockito:mockito-core:$mockito_core"
     androidTestCompile "junit:junit:$junit"

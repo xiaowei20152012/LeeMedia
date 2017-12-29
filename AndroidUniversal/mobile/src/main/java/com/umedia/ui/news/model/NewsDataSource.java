@@ -10,7 +10,7 @@ public class NewsDataSource {
 
     private OkApiClient newsListClient;
 
-    public void loadNewsList(String url, OkStringCallback callback) {
+    public void loadNewsList(String url, OkGenericsCallback<GirlResult> callback) {
         newsListClient = new OkApiClient.Builder().url(url).build();
         newsListClient.request(callback);
     }
