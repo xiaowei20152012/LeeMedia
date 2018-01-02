@@ -55,7 +55,7 @@
                 android:paddingEnd="8dp"
                 android:paddingLeft="60dp"
                 android:paddingRight="8dp"
-                android:paddingStart="60dp" />
+                android:paddingStart="15dp" />
 
         </android.support.design.widget.AppBarLayout>
 

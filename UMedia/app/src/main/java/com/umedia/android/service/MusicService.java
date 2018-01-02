@@ -691,6 +691,7 @@ public class MusicService extends Service implements SharedPreferences.OnSharedP
                 prepareNext();
                 handleAndSendChangeInternal(REPEAT_MODE_CHANGED);
                 break;
+            default:
         }
     }
 
