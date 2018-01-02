@@ -57,7 +57,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public abstract class AbsTagEditorActivity extends AbsBaseActivity {
 

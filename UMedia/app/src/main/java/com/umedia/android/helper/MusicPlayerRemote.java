@@ -31,7 +31,7 @@ import java.util.Random;
 import java.util.WeakHashMap;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class MusicPlayerRemote {
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.umedia.android.R;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class HorizontalAdapterHelper {
     public static final int LAYOUT_RES = R.layout.item_grid_card_horizontal;

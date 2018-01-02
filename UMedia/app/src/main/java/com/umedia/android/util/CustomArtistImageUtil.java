@@ -25,7 +25,7 @@ import java.io.OutputStream;
 import java.util.Locale;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 
 public class CustomArtistImageUtil {

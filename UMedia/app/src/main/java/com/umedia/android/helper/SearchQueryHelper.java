@@ -12,7 +12,7 @@ import com.umedia.android.model.Song;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class SearchQueryHelper {
     private static final String TITLE_SELECTION = "lower(" + MediaStore.Audio.AudioColumns.TITLE + ") = ?";

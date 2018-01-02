@@ -28,7 +28,7 @@ import com.umedia.android.util.NavigationUtil;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class ArtistSongAdapter extends ArrayAdapter<Song> implements MaterialCab.Callback {
     @Nullable

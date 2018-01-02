@@ -28,7 +28,7 @@ import butterknife.Unbinder;
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class MiniPlayerFragment extends AbsMusicServiceFragment implements MusicProgressViewUpdateHelper.Callback {
 

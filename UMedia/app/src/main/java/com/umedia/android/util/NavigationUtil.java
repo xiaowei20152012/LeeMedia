@@ -20,7 +20,7 @@ import com.umedia.android.ui.activities.GenreDetailActivity;
 import com.umedia.android.ui.activities.PlaylistDetailActivity;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class NavigationUtil {
 

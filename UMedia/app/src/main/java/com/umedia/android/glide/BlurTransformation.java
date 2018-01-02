@@ -20,7 +20,7 @@ import com.umedia.android.helper.StackBlur;
 import com.umedia.android.util.ImageUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class BlurTransformation extends BitmapTransformation {
     public static final float DEFAULT_BLUR_RADIUS = 5f;

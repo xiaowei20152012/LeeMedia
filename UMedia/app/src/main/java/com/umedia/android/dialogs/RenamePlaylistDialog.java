@@ -11,7 +11,7 @@ import com.umedia.android.R;
 import com.umedia.android.util.PlaylistsUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid), Aidan Follestad (afollestad)
+ * @author Lee (zh), Aidan Follestad (afollestad)
  */
 public class RenamePlaylistDialog extends DialogFragment {
 

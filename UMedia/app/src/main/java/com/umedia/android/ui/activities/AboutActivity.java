@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 import de.psdev.licensesdialog.LicensesDialog;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 @SuppressWarnings("FieldCanBeLocal")
 public class AboutActivity extends AbsBaseActivity implements View.OnClickListener {

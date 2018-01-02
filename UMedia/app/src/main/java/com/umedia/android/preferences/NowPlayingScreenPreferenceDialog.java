@@ -26,7 +26,7 @@ import com.umedia.android.util.ViewUtil;
 import butterknife.ButterKnife;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class NowPlayingScreenPreferenceDialog extends DialogFragment implements MaterialDialog.SingleButtonCallback, ViewPager.OnPageChangeListener {
     public static final String TAG = NowPlayingScreenPreferenceDialog.class.getSimpleName();

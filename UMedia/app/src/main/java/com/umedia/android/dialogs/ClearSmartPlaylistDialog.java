@@ -12,7 +12,7 @@ import com.umedia.android.R;
 import com.umedia.android.model.smartplaylist.AbsSmartPlaylist;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class ClearSmartPlaylistDialog extends DialogFragment {
 

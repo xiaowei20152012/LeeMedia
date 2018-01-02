@@ -9,7 +9,7 @@ import com.kabouzeid.appthemehelper.util.ATHUtil;
 import com.umedia.android.R;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class IconImageView extends AppCompatImageView {
     public IconImageView(Context context) {

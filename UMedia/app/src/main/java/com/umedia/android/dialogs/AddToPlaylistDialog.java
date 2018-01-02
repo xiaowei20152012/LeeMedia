@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Karim Abou Zeid (kabouzeid), Aidan Follestad (afollestad)
+ * @author Lee (zh), Aidan Follestad (afollestad)
  */
 public class AddToPlaylistDialog extends DialogFragment {
 

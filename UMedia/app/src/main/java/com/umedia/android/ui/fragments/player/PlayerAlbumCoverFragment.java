@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class PlayerAlbumCoverFragment extends AbsMusicServiceFragment implements ViewPager.OnPageChangeListener, MusicProgressViewUpdateHelper.Callback {
     public static final String TAG = PlayerAlbumCoverFragment.class.getSimpleName();

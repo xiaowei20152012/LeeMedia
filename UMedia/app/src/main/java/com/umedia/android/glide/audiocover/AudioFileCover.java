@@ -1,7 +1,7 @@
 package com.umedia.android.glide.audiocover;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class AudioFileCover {
     public final String filePath;

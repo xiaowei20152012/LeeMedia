@@ -7,7 +7,7 @@ import com.umedia.android.ui.fragments.AbsMusicServiceFragment;
 import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class AbsLibraryPagerFragment extends AbsMusicServiceFragment {
 

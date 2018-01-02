@@ -9,7 +9,7 @@ import com.umedia.android.interfaces.MusicServiceEventListener;
 import com.umedia.android.ui.activities.base.AbsMusicServiceActivity;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class AbsMusicServiceFragment extends Fragment implements MusicServiceEventListener {
     private AbsMusicServiceActivity activity;

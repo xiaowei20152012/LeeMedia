@@ -18,7 +18,7 @@ import com.umedia.android.util.NavigationUtil;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class PlaylistSongAdapter extends AbsOffsetSongAdapter {
 

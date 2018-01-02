@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class PhonographColorUtil {
 

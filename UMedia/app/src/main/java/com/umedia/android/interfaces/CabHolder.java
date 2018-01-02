@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.afollestad.materialcab.MaterialCab;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public interface CabHolder {
 

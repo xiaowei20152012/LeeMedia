@@ -11,7 +11,7 @@ import com.bumptech.glide.load.model.stream.StreamModelLoader;
 import java.io.InputStream;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 
 public class AudioFileCoverLoader implements StreamModelLoader<AudioFileCover> {

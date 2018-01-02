@@ -9,7 +9,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.umedia.android.model.lyrics.Lyrics;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class LyricsDialog extends DialogFragment {
     public static LyricsDialog create(@NonNull Lyrics lyrics) {

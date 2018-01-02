@@ -1,7 +1,7 @@
 package com.umedia.android.glide.artistimage;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class ArtistImage {
     public final String artistName;

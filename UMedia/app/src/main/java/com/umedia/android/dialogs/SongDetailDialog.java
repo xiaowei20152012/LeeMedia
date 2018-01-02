@@ -29,7 +29,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author Karim Abou Zeid (kabouzeid), Aidan Follestad (afollestad)
+ * @author Lee (zh), Aidan Follestad (afollestad)
  */
 public class SongDetailDialog extends DialogFragment {
 

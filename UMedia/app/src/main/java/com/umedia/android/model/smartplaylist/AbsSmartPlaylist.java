@@ -9,7 +9,7 @@ import com.umedia.android.R;
 import com.umedia.android.model.AbsCustomPlaylist;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public abstract class AbsSmartPlaylist extends AbsCustomPlaylist {
     @DrawableRes

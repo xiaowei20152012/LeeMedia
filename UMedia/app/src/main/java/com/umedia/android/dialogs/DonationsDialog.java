@@ -40,7 +40,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class DonationsDialog extends DialogFragment implements BillingProcessor.IBillingHandler {
     public static final String TAG = DonationsDialog.class.getSimpleName();

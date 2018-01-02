@@ -16,7 +16,7 @@ import com.umedia.android.util.PreferenceUtil;
 import com.umedia.android.util.Util;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 
 public abstract class AbsThemeActivity extends ATHToolbarActivity {

@@ -13,7 +13,7 @@ import com.umedia.android.model.Song;
 import com.umedia.android.util.MusicUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class SongShareDialog extends DialogFragment {
     @NonNull

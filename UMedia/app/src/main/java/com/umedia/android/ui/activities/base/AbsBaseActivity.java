@@ -19,7 +19,7 @@ import com.kabouzeid.appthemehelper.ThemeStore;
 import com.umedia.android.R;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public abstract class AbsBaseActivity extends AbsThemeActivity {
     public static final int PERMISSION_REQUEST = 100;

@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public abstract class DialogAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
     private final int delay;

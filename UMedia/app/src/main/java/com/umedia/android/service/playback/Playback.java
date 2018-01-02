@@ -3,7 +3,7 @@ package com.umedia.android.service.playback;
 import android.support.annotation.Nullable;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public interface Playback {
 

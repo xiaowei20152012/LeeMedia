@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class AudioFileCoverFetcher implements DataFetcher<InputStream> {
     private final AudioFileCover model;

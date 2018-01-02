@@ -22,7 +22,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * @author Aidan Follestad (afollestad), modified by Karim Abou Zeid
+ * @author Aidan Follestad (afollestad), modified by Lee
  */
 public class BlacklistFolderChooserDialog extends DialogFragment implements MaterialDialog.ListCallback {
 

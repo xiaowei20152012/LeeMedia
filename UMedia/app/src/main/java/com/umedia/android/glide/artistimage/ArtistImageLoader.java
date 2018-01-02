@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 
 public class ArtistImageLoader implements StreamModelLoader<ArtistImage> {

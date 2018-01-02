@@ -1,7 +1,7 @@
 package com.umedia.android.interfaces;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public interface LoaderIds {
     int ALBUM_DETAIL_ACTIVITY = 1;

@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class Artist implements Parcelable {
     public final ArrayList<Album> albums;

@@ -17,7 +17,7 @@ import com.umedia.android.service.playback.Playback;
 import com.umedia.android.util.PreferenceUtil;
 
 /**
- * @author Andrew Neal, Karim Abou Zeid (kabouzeid)
+ * @author Andrew Neal, Lee (kabouzeid)
  */
 public class MultiPlayer implements Playback, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
     public static final String TAG = MultiPlayer.class.getSimpleName();

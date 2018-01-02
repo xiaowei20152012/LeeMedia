@@ -12,7 +12,7 @@ import com.umedia.android.provider.HistoryStore;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class HistoryPlaylist extends AbsSmartPlaylist {
 

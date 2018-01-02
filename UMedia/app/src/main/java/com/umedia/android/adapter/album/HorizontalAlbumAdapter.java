@@ -20,7 +20,7 @@ import com.umedia.android.model.Album;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class HorizontalAlbumAdapter extends AlbumAdapter {
     public static final String TAG = AlbumAdapter.class.getSimpleName();

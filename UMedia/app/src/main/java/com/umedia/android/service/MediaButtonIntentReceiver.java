@@ -9,7 +9,7 @@
  * governing permissions and limitations under the License.
  */
 
-// Modified for Phonograph by Karim Abou Zeid (kabouzeid).
+// Modified for Phonograph by Lee (zh).
 
 package com.umedia.android.service;
 

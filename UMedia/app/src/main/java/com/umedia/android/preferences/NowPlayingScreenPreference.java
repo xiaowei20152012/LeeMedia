@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.kabouzeid.appthemehelper.common.prefs.supportv7.ATEDialogPreference;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class NowPlayingScreenPreference extends ATEDialogPreference {
     public NowPlayingScreenPreference(Context context) {

@@ -11,7 +11,7 @@ import com.umedia.android.model.Song;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class LastAddedPlaylist extends AbsSmartPlaylist {
 

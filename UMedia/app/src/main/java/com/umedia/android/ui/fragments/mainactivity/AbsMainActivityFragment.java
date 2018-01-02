@@ -11,7 +11,7 @@ import com.umedia.android.R;
 import com.umedia.android.ui.activities.MainActivity;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public abstract class AbsMainActivityFragment extends Fragment {
 

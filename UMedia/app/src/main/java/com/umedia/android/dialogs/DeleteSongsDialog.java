@@ -15,7 +15,7 @@ import com.umedia.android.util.MusicUtil;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid), Aidan Follestad (afollestad)
+ * @author Lee (zh), Aidan Follestad (afollestad)
  */
 public class DeleteSongsDialog extends DialogFragment {
 

@@ -21,7 +21,7 @@ import com.umedia.android.util.MusicUtil;
 import com.umedia.android.util.PreferenceUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class SongGlideRequest {
 

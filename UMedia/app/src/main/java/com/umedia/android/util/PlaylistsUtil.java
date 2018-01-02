@@ -26,7 +26,7 @@ import java.util.List;
 import static android.provider.MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class PlaylistsUtil {
 

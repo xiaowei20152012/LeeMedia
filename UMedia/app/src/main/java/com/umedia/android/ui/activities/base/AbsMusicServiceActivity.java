@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public abstract class AbsMusicServiceActivity extends AbsBaseActivity implements MusicServiceEventListener {
     public static final String TAG = AbsMusicServiceActivity.class.getSimpleName();

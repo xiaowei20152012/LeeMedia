@@ -21,7 +21,7 @@ import com.umedia.android.util.MusicUtil;
 import com.umedia.android.util.NavigationUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class SongMenuHelper {
     public static final int MENU_RES = R.menu.menu_item_song;

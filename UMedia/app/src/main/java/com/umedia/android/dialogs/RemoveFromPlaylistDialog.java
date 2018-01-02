@@ -15,7 +15,7 @@ import com.umedia.android.util.PlaylistsUtil;
 import java.util.ArrayList;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class RemoveFromPlaylistDialog extends DialogFragment {
 

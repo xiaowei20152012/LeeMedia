@@ -3,7 +3,7 @@ package com.umedia.android.helper;
 import android.view.View;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class PlayPauseButtonOnClickHandler implements View.OnClickListener {
     @Override

@@ -3,7 +3,7 @@ package com.umedia.android.misc;
 import android.graphics.Color;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 
 public interface NonProAllowedColors {

@@ -11,7 +11,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public interface LastFMService {
     String API_KEY = "bd9c6ea4d55ec9ed3af7d276e5ece304";

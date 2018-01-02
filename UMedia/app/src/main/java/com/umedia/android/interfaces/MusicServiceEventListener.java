@@ -1,7 +1,7 @@
 package com.umedia.android.interfaces;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public interface MusicServiceEventListener {
     void onServiceConnected();

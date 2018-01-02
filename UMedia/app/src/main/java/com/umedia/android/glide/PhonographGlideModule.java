@@ -13,7 +13,7 @@ import com.umedia.android.glide.audiocover.AudioFileCoverLoader;
 import java.io.InputStream;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class PhonographGlideModule implements GlideModule {
     @Override

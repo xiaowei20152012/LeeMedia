@@ -3,7 +3,7 @@ package com.umedia.android.misc;
 import android.animation.Animator;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public abstract class SimpleAnimatorListener implements Animator.AnimatorListener {
     @Override

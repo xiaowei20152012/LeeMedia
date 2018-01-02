@@ -5,7 +5,7 @@ import android.os.Build;
 import android.transition.Transition;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public abstract class SimpleTransitionListener implements Transition.TransitionListener {

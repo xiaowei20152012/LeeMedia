@@ -7,7 +7,7 @@ import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 import com.umedia.android.R;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class AppIntroActivity extends IntroActivity {
 

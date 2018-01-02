@@ -28,7 +28,7 @@ import com.kabouzeid.appthemehelper.util.TintHelper;
 import com.umedia.android.R;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class Util {
 

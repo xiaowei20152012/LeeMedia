@@ -3,7 +3,7 @@ package com.umedia.android.helper;
 /**
  * Simple thread safe stop watch.
  *
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class StopWatch {
 

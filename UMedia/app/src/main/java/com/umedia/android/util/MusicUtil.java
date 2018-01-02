@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (kabouzeid)
  */
 public class MusicUtil {
     public static final String TAG = MusicUtil.class.getSimpleName();

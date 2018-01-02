@@ -23,7 +23,7 @@ import com.umedia.android.util.ArtistSignatureUtil;
 import com.umedia.android.util.CustomArtistImageUtil;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class ArtistGlideRequest {
 

@@ -3,7 +3,7 @@ package com.umedia.android.misc;
 import android.widget.SeekBar;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public abstract class SimpleOnSeekbarChangeListener implements SeekBar.OnSeekBarChangeListener {
     @Override

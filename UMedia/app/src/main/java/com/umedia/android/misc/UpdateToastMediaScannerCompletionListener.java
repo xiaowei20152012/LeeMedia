@@ -11,7 +11,7 @@ import com.umedia.android.R;
 import java.lang.ref.WeakReference;
 
 /**
- * @author Karim Abou Zeid (kabouzeid)
+ * @author Lee (zh)
  */
 public class UpdateToastMediaScannerCompletionListener implements MediaScannerConnection.OnScanCompletedListener {
     int scanned = 0;
