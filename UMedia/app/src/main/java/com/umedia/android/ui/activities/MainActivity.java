@@ -43,6 +43,7 @@ import com.umedia.android.ui.activities.base.AbsSlidingMusicPanelActivity;
 import com.umedia.android.ui.activities.intro.AppIntroActivity;
 import com.umedia.android.ui.fragments.mainactivity.folders.FoldersFragment;
 import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
+import com.umedia.android.util.DeviceUtil;
 import com.umedia.android.util.PreferenceUtil;
 import com.umedia.android.util.Util;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -79,6 +80,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        DeviceUtil.getNetworkOperatorName(this);
 
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
             Util.setStatusBarTranslucent(getWindow());
