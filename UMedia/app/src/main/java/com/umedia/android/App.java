@@ -13,6 +13,10 @@ import com.umedia.android.appshortcuts.DynamicShortcutManager;
 
 import io.fabric.sdk.android.Fabric;
 
+/**
+ * APP Install
+ *
+ */
 public class App extends Application {
     public static final String TAG = App.class.getSimpleName();
 
