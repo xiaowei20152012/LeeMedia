@@ -51,8 +51,8 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         applicationId 'com.umedia.android'
-        versionCode 149
-        versionName '0.16.4'
+        versionCode 1
+        versionName '0.0.1'
     }
     buildTypes {
         release {
@@ -63,7 +63,6 @@ android {
         debug {
             applicationIdSuffix '.debug'
             versionNameSuffix ' DEBUG (' + gitBranch() + ')'
-
             ext.enableCrashlytics = false // Disable fabric build ID generation for debug builds
         }
     }

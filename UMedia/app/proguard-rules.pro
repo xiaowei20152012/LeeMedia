@@ -42,5 +42,15 @@
 
 -keep class !android.support.v7.internal.view.menu.**,** {*;}
 
+# optimize Log
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** e(...);
+    public static *** i(...);
+    public static *** v(...);
+    public static *** w(...);
+}
+# end optimize Log
+
 -dontwarn
 -ignorewarnings
