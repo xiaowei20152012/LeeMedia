@@ -9,13 +9,13 @@ import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.kabouzeid.appthemehelper.ThemeStore;
+import com.squareup.leakcanary.LeakCanary;
 import com.umedia.android.appshortcuts.DynamicShortcutManager;
 
 import io.fabric.sdk.android.Fabric;
 
 /**
  * APP Install
- *
  */
 public class App extends Application {
     public static final String TAG = App.class.getSimpleName();
@@ -31,7 +31,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
         // default theme
         if (!ThemeStore.isConfigured(this, 1)) {
             ThemeStore.editTheme(this)

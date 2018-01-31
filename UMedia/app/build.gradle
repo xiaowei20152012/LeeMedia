@@ -131,4 +131,9 @@ dependencies {
     }
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //add LeakCanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+//    stagingCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }

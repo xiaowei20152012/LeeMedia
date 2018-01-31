@@ -22,6 +22,7 @@ public final class ShuffleAllShortcutType extends BaseShortcutType {
         return ID_PREFIX + "shuffle_all";
     }
 
+    @Override
     public ShortcutInfo getShortcutInfo() {
         return new ShortcutInfo.Builder(context, getId())
                 .setShortLabel(context.getString(R.string.app_shortcut_shuffle_all_short))
