@@ -53,7 +53,7 @@ public class App extends Application {
         if (!BuildConfig.DEBUG) {
             Fabric.with(this, crashlyticsKit, new Answers());
         } else {
-            Fabric.with(this, crashlyticsKit); // crashlytics kit is disabled here
+            Fabric.with(this, crashlyticsKit, new Crashlytics(), new Crashlytics()); // crashlytics kit is disabled here
         }
 
         // Set up dynamic shortcuts

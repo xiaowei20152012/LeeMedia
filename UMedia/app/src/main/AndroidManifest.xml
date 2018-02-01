@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.umedia.android"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.umedia.android">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,8 +17,8 @@
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Phonograph.Light"
         tools:ignore="UnusedAttribute">
@@ -138,9 +138,12 @@
         <meta-data
             android:name="com.lge.support.SPLIT_WINDOW"
             android:value="true" />
+        <!--<meta-data-->
+        <!--android:name="com.crashlytics.ApiKey"-->
+        <!--android:value="b23725bd3d266aa65c5a3dd1816b2f801524a189" />-->
         <meta-data
-            android:name="com.crashlytics.ApiKey"
-            android:value="b23725bd3d266aa65c5a3dd1816b2f801524a189" />
+            android:name="io.fabric.ApiKey"
+            android:value="945b07052fbe2cd486e31e54f4f32f89b032de06" />
         <meta-data
             android:name="com.umedia.android.glide.PhonographGlideModule"
             android:value="GlideModule" />
@@ -211,8 +214,9 @@
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
+
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 
