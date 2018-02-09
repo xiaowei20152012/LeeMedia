@@ -28,6 +28,7 @@ import java.io.InputStreamReader;
 
 /**
  * @author Aidan Follestad (afollestad)
+ * modify by lee
  */
 public class ChangelogDialog extends DialogFragment {
 

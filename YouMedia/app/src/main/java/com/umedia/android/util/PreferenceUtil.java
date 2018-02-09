@@ -149,7 +149,9 @@ public final class PreferenceUtil {
     public final NowPlayingScreen getNowPlayingScreen() {
         int id = mPreferences.getInt(NOW_PLAYING_SCREEN_ID, 0);
         for (NowPlayingScreen nowPlayingScreen : NowPlayingScreen.values()) {
-            if (nowPlayingScreen.id == id) return nowPlayingScreen;
+            if (nowPlayingScreen.id == id) {
+                return nowPlayingScreen;
+            }
         }
         return NowPlayingScreen.CARD;
     }
@@ -158,7 +160,7 @@ public final class PreferenceUtil {
     public void setNowPlayingScreen(NowPlayingScreen nowPlayingScreen) {
         final SharedPreferences.Editor editor = mPreferences.edit();
         editor.putInt(NOW_PLAYING_SCREEN_ID, nowPlayingScreen.id);
-        editor.commit();
+        editor.apply();
     }
 
     public final boolean coloredNotification() {

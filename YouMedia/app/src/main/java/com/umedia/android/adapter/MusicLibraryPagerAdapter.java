@@ -177,6 +177,7 @@ public class MusicLibraryPagerAdapter extends FragmentPagerAdapter {
             public static final MusicFragments[] FRAGMENTS = values();
         }
     }
+    
 
     private final static class Holder {
         String mClassName;

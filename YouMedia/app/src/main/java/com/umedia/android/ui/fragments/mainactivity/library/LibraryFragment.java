@@ -44,6 +44,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * music home fragment
+ */
 public class LibraryFragment extends AbsMainActivityFragment implements CabHolder, MainActivity.MainActivityFragmentCallbacks, ViewPager.OnPageChangeListener, SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String TAG = LibraryFragment.class.getSimpleName();
 
@@ -174,7 +177,9 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        if (pager == null) return;
+        if (pager == null) {
+            return;
+        }
         inflater.inflate(R.menu.menu_main, menu);
         if (isPlaylistPage()) {
             menu.add(0, R.id.action_new_playlist, 0, R.string.new_playlist_title);
@@ -210,7 +215,9 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (pager == null) return false;
+        if (pager == null) {
+            return false;
+        }
         Fragment currentFragment = getCurrentFragment();
         if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment) {
             AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
@@ -235,6 +242,7 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             case R.id.action_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));
                 return true;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
@@ -265,6 +273,7 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             case 8:
                 gridSizeMenu.findItem(R.id.action_grid_size_8).setChecked(true);
                 break;
+            default:
         }
         int maxGridSize = fragment.getMaxGridSize();
         if (maxGridSize < 8) {
@@ -314,6 +323,7 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             case R.id.action_grid_size_8:
                 gridSize = 8;
                 break;
+            default:
         }
         if (gridSize > 0) {
             item.setChecked(true);

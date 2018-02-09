@@ -73,7 +73,7 @@ public class PlaylistsFragment extends AbsLibraryPagerRecyclerViewFragment<Playl
     }
 
     private static class AsyncPlaylistLoader extends WrappedAsyncTaskLoader<ArrayList<Playlist>> {
-        public AsyncPlaylistLoader(Context context) {
+        AsyncPlaylistLoader(Context context) {
             super(context);
         }
 

@@ -100,6 +100,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
             restoreCurrentFragment();
         }
 
+        //check if need to show welcome and if need to show update
         if (!checkShowIntro()) {
             checkShowChangelog();
         }
@@ -122,6 +123,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
                 navigationView.setCheckedItem(R.id.nav_folders);
                 setCurrentFragment(FoldersFragment.newInstance(this));
                 break;
+            default:
         }
     }
 

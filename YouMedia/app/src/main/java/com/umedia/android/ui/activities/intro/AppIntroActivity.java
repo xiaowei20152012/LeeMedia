@@ -8,6 +8,9 @@ import com.umedia.android.R;
 
 /**
  * @author Lee (kabouzeid)
+ *
+ * like welcomeActivity
+ *
  */
 public class AppIntroActivity extends IntroActivity {
 

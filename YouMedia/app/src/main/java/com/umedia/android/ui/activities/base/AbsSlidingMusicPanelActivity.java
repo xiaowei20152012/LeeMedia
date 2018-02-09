@@ -149,6 +149,7 @@ public abstract class AbsSlidingMusicPanelActivity extends AbsMusicServiceActivi
             case ANCHORED:
                 collapsePanel(); // this fixes a bug where the panel would get stuck for some reason
                 break;
+            default:
         }
     }
 
