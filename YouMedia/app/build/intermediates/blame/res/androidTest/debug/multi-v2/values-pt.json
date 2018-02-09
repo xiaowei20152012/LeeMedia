@@ -1,0 +1,172 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/wei.li/Documents/github/LeeMedia/UMedia/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-pt/values-pt.xml",
+            "map": [
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/licensesdialog-1.8.3.aar/7f6ba8743d79c011a785dd6d05cbdf51/res/values-pt/strings.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "767,717",
+                        "endColumns": "48,48",
+                        "endOffsets": "811,761"
+                    },
+                    "to": {
+                        "startLines": "19,20",
+                        "startColumns": "4,4",
+                        "startOffsets": "1904,1953",
+                        "endColumns": "48,48",
+                        "endOffsets": "1948,1997"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/c0e024f6793c4cf5a20f18e02a4e6844/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "22",
+                        "startColumns": "4",
+                        "startOffsets": "2087",
+                        "endColumns": "100",
+                        "endOffsets": "2183"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2168b968e8f55e01a7f1a65361d0bd95/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,1904",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,1984"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,2002",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,2082"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/wei.li/Documents/github/Phonograph/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-pt/values-pt.xml",
+            "map": [
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2b66bcb6c16ccde3f3338fdac55e55e5/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,1904",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,1984"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,2002",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,2082"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/licensesdialog-1.8.3.aar/c21cc41553ace0621e81c785a686c9de/res/values-pt/strings.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "767,717",
+                        "endColumns": "48,48",
+                        "endOffsets": "811,761"
+                    },
+                    "to": {
+                        "startLines": "19,20",
+                        "startColumns": "4,4",
+                        "startOffsets": "1904,1953",
+                        "endColumns": "48,48",
+                        "endOffsets": "1948,1997"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/f3428ff571eeafa73cc2e050dbeb12d2/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "22",
+                        "startColumns": "4",
+                        "startOffsets": "2087",
+                        "endColumns": "100",
+                        "endOffsets": "2183"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/wei.li/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-pt/values-pt.xml",
+            "map": [
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/licensesdialog-1.8.3.aar/7f6ba8743d79c011a785dd6d05cbdf51/res/values-pt/strings.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "4,4",
+                        "startOffsets": "767,717",
+                        "endColumns": "48,48",
+                        "endOffsets": "811,761"
+                    },
+                    "to": {
+                        "startLines": "19,20",
+                        "startColumns": "4,4",
+                        "startOffsets": "1904,1953",
+                        "endColumns": "48,48",
+                        "endOffsets": "1948,1997"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/c0e024f6793c4cf5a20f18e02a4e6844/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "22",
+                        "startColumns": "4",
+                        "startOffsets": "2087",
+                        "endColumns": "100",
+                        "endOffsets": "2183"
+                    }
+                },
+                {
+                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2168b968e8f55e01a7f1a65361d0bd95/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,1904",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,1984"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,2002",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,2082"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,6 @@
 package com.umedia.android.ui.activities;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -19,7 +18,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +26,7 @@ import com.bumptech.glide.Glide;
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.kabouzeid.appthemehelper.util.ATHUtil;
 import com.kabouzeid.appthemehelper.util.NavigationViewUtil;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.umedia.android.App;
 import com.umedia.android.R;
 import com.umedia.android.dialogs.ChangelogDialog;
@@ -46,7 +45,6 @@ import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
 import com.umedia.android.util.DeviceUtil;
 import com.umedia.android.util.PreferenceUtil;
 import com.umedia.android.util.Util;
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
 
@@ -81,7 +79,6 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         DeviceUtil.getNetworkOperatorName(this);
-
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
             Util.setStatusBarTranslucent(getWindow());
             drawerLayout.setFitsSystemWindows(false);
