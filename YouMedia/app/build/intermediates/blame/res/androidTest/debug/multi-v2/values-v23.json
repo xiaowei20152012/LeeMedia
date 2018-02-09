@@ -1,77 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wei.li/Documents/github/Phonograph/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v23/values-v23.xml",
-            "map": [
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/cf5188f43bf647da3831944244d2a377/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "200"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "2646",
-                        "endLines": "39",
-                        "endColumns": "12",
-                        "endOffsets": "2791"
-                    }
-                },
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2b66bcb6c16ccde3f3338fdac55e55e5/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/wei.li/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v23/values-v23.xml",
-            "map": [
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2168b968e8f55e01a7f1a65361d0bd95/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,19,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1277,2079,2206,2311,2426,2533",
-                        "endLines": "2,3,4,5,18,31,32,33,34,35,36",
-                        "endColumns": "134,134,74,86,12,12,126,104,114,106,112",
-                        "endOffsets": "185,320,395,482,1272,2074,2201,2306,2421,2528,2641"
-                    }
-                },
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/3df9d06ad4dc9c946fccac17b8d0227b/res/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "200"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "2646",
-                        "endLines": "39",
-                        "endColumns": "12",
-                        "endOffsets": "2791"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/wei.li/Documents/github/LeeMedia/UMedia/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2168b968e8f55e01a7f1a65361d0bd95/res/values-v23/values-v23.xml",
