@@ -1,0 +1,4 @@
+#Sun Jan 28 12:11:44 CST 2018
+base.0=/Users/liwei/Documents/github/LeeMedia/ExoPlayer/demo/buildout/intermediates/transforms/dexMerger/noExtensions/debug/0
+renamed.0=classes.dex
+file.0=/Users/liwei/Documents/github/LeeMedia/ExoPlayer/demo/buildout/intermediates/transforms/dexMerger/noExtensions/debug/0/classes.dex

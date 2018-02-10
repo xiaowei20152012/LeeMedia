@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "/Users/liwei/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw820dp-v13/values-sw820dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/material-intro-1.6.2.aar/d62d37a64d54356c891c2d65a8fe5fe1/res/values-sw820dp-v13/values-sw820dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,98,146,210",
+                        "endColumns": "42,47,63,43",
+                        "endOffsets": "93,141,205,249"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/wei.li/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw820dp-v13/values-sw820dp-v13.xml",
             "map": [
                 {

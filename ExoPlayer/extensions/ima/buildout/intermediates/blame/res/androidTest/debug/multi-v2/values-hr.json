@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-hr/values-hr.xml",
+            "map": [
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/values-hr/values-hr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "35",
+                        "startColumns": "4",
+                        "startOffsets": "3934",
+                        "endColumns": "100",
+                        "endOffsets": "4030"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.2.aar/0a65e820bd8149d8875817c0fc8d7bf9/res/values-hr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "190",
+                        "endOffsets": "475"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "1130",
+                        "endColumns": "190",
+                        "endOffsets": "1316"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/values-hr/values-hr.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,137,213,283,356,437,514,596,675,745",
+                        "endColumns": "81,75,69,72,80,76,81,78,69,68",
+                        "endOffsets": "132,208,278,351,432,509,591,670,740,809"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2636,2718,2794,2864,2937,3018,3095,3177,3256,3326",
+                        "endColumns": "81,75,69,72,80,76,81,78,69,68",
+                        "endOffsets": "2713,2789,2859,2932,3013,3090,3172,3251,3321,3390"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/values-hr/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,387,576,704,812,1028,1156,1288,1497,1602,1790,1916,2122,2291,2385,2473",
+                        "endColumns": "103,188,127,107,215,127,131,208,104,187,125,205,168,93,87,105",
+                        "endOffsets": "386,575,703,811,1027,1155,1287,1496,1601,1789,1915,2121,2290,2384,2472,2578"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,402,534,646,862,994,1321,1530,1639,1827,1957,2163,2336,2434,2526",
+                        "endColumns": "107,188,131,111,215,131,135,208,108,187,129,205,172,97,91,109",
+                        "endOffsets": "208,397,529,641,857,989,1125,1525,1634,1822,1952,2158,2331,2429,2521,2631"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-ads-11.0.2.aar/0c387490af3fa3ed2a047032a476eb33/res/values-hr/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9",
+                        "startColumns": "0,0,0,0,0,0",
+                        "startOffsets": "237,306,424,490,553,637",
+                        "endColumns": "68,117,65,62,83,114",
+                        "endOffsets": "305,423,489,552,636,751"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "3395,3468,3590,3660,3727,3815",
+                        "endColumns": "72,121,69,66,87,118",
+                        "endOffsets": "3463,3585,3655,3722,3810,3929"
+                    }
+                }
+            ]
+        }
+    ]
+}

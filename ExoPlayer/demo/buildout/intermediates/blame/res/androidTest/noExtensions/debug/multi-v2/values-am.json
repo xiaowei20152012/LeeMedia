@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/demo/buildout/intermediates/incremental/mergeNoExtensionsDebugAndroidTestResources/merged.dir/values-am/values-am.xml",
+            "map": [
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "12",
+                        "startColumns": "4",
+                        "startOffsets": "771",
+                        "endColumns": "100",
+                        "endOffsets": "867"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,133,201,271,336,408,483,559,634,707",
+                        "endColumns": "77,67,69,64,71,74,75,74,72,63",
+                        "endOffsets": "128,196,266,331,403,478,554,629,702,766"
+                    }
+                }
+            ]
+        }
+    ]
+}

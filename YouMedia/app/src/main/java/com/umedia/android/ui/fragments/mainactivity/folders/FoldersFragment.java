@@ -401,10 +401,11 @@ public class FoldersFragment extends AbsMainActivityFragment implements MainActi
     }
 
     FileFilter audioFileFilter = file -> !file.isHidden() && (file.isDirectory() ||
-            FileUtil.fileIsMimeType(file, "audio/*", MimeTypeMap.getSingleton()) ||
-            FileUtil.fileIsMimeType(file, "application/ogg", MimeTypeMap.getSingleton())||
-            FileUtil.fileIsMimeType(file, "video/*", MimeTypeMap.getSingleton())||
-            FileUtil.fileIsMimeType(file, "image/*", MimeTypeMap.getSingleton()));
+            FileUtil.fileIsMimeType(file));
+//            FileUtil.fileIsMimeType(file, "audio/*", MimeTypeMap.getSingleton()) ||
+//            FileUtil.fileIsMimeType(file, "application/ogg", MimeTypeMap.getSingleton())||
+//            FileUtil.fileIsMimeType(file, "video/*", MimeTypeMap.getSingleton())||
+//            FileUtil.fileIsMimeType(file, "image/*", MimeTypeMap.getSingleton()));
 
     private FileFilter getFileFilter() {
         return audioFileFilter;

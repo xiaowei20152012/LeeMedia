@@ -1,0 +1,23 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml:17:1-63
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml:17:1-63
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml:17:1-63
+	package
+		ADDED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml:17:11-61
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+uses-sdk
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+		ADDED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+		ADDED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml
+		INJECTED from /Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ffmpeg/src/main/AndroidManifest.xml

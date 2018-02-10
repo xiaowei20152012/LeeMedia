@@ -1,0 +1,586 @@
+[
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_pause.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_edit_mode_logo.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_edit_mode_logo.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_rewind.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_rewind.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_custom_big.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_next.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_light_focused.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_notification_icon_background.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout-v16_notification_template_custom_big.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout-v16/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_pause.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_repeat_one.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_repeat_one.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_repeat_all.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_pause.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_pause.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_exo_playback_control_view.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/layout/exo_playback_control_view.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_light_focused.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_light_normal.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_fastforward.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_repeat_one.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_repeat_one.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_exo_simple_player_view.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/layout/exo_simple_player_view.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_action_tombstone.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_repeat_off.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_media.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_fastforward.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_next.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_next.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_repeat_off.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_rewind.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_fastforward.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_media_action.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_rewind.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_play.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_repeat_all.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_big_media.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_previous.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_rewind.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_previous.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_previous.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_big_media_narrow.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_previous.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_repeat_all.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_fastforward.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_fastforward.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_media_cancel_action.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_repeat_all.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_previous.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_previous.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_pause.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_repeat_off.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_repeat_off.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_repeat_off.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_dark.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_media_custom.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_play.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_play.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_lines_media.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_repeat_one.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_repeat_one.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_controls_play.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_previous.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_rewind.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_rewind.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_repeat_one.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_repeat_one.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xxhdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_play.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_pause.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_repeat_one.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_repeat_one.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_play.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_repeat_off.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_action.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-ldpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-ldpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_part_time.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_big_media_custom.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0.aar/f2455d164d8cce0fb50223bd4c023719/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_fastforward.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_controls_fastforward.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_pause.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_next.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_exo_controls_repeat_off.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_repeat_all.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_repeat_all.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_play.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/color_common_google_signin_btn_tint.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/color_common_google_signin_btn_text_dark.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_next.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/layout_notification_template_icon_group.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xhdpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_exo_controls_repeat_all.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-hdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-mdpi-v4/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4_exo_controls_repeat_one.png.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-xxhdpi-v4/exo_controls_repeat_one.png"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/color_common_google_signin_btn_text_light.xml.flat",
+        "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21_exo_controls_next.xml.flat",
+        "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/drawable-anydpi-v21/exo_controls_next.xml"
+    }
+]

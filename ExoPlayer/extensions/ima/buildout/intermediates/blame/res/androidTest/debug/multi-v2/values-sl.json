@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/extensions/ima/buildout/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-sl/values-sl.xml",
+            "map": [
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.2.aar/0a65e820bd8149d8875817c0fc8d7bf9/res/values-sl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "198",
+                        "endOffsets": "483"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "1121",
+                        "endColumns": "198",
+                        "endOffsets": "1315"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-ads-11.0.2.aar/0c387490af3fa3ed2a047032a476eb33/res/values-sl/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9",
+                        "startColumns": "0,0,0,0,0,0",
+                        "startOffsets": "237,312,422,487,551,641",
+                        "endColumns": "74,109,64,63,89,107",
+                        "endOffsets": "311,421,486,550,640,748"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "3426,3505,3619,3688,3756,3850",
+                        "endColumns": "78,113,68,67,93,111",
+                        "endOffsets": "3500,3614,3683,3751,3845,3957"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.2.aar/2ffdc63f3c37bd6f7ecf2543dbcbea7f/res/values-sl/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,387,584,711,816,1022,1150,1279,1496,1601,1799,1927,2138,2316,2412,2500",
+                        "endColumns": "103,196,126,104,205,127,128,216,104,197,127,210,177,95,87,108",
+                        "endOffsets": "386,583,710,815,1021,1149,1278,1495,1600,1798,1926,2137,2315,2411,2499,2608"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,213,410,541,650,856,988,1320,1537,1646,1844,1976,2187,2369,2469,2561",
+                        "endColumns": "107,196,130,108,205,131,132,216,108,197,131,210,181,99,91,112",
+                        "endOffsets": "208,405,536,645,851,983,1116,1532,1641,1839,1971,2182,2364,2464,2556,2669"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/Documents/github/LeeMedia/ExoPlayer/library/ui/buildout/intermediates/bundles/debug/res/values-sl/values-sl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,136,214,284,354,435,512,588,665,740",
+                        "endColumns": "80,77,69,69,80,76,75,76,74,66",
+                        "endOffsets": "131,209,279,349,430,507,583,660,735,802"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2674,2755,2833,2903,2973,3054,3131,3207,3284,3359",
+                        "endColumns": "80,77,69,69,80,76,75,76,74,66",
+                        "endOffsets": "2750,2828,2898,2968,3049,3126,3202,3279,3354,3421"
+                    }
+                },
+                {
+                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/b9f13c385567d74b3e40ac2c4a4897c0/res/values-sl/values-sl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "35",
+                        "startColumns": "4",
+                        "startOffsets": "3962",
+                        "endColumns": "100",
+                        "endOffsets": "4058"
+                    }
+                }
+            ]
+        }
+    ]
+}
