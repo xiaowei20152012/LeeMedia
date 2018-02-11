@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.kabouzeid.appthemehelper.util.ATHUtil;
 import com.kabouzeid.appthemehelper.util.NavigationViewUtil;
@@ -40,6 +41,7 @@ import com.umedia.android.model.Song;
 import com.umedia.android.service.MusicService;
 import com.umedia.android.ui.activities.base.AbsSlidingMusicPanelActivity;
 import com.umedia.android.ui.activities.intro.AppIntroActivity;
+import com.umedia.android.ui.fragments.mainactivity.files.FilesFragment;
 import com.umedia.android.ui.fragments.mainactivity.folders.FoldersFragment;
 import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
 import com.umedia.android.util.DeviceUtil;
@@ -50,6 +52,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AbsSlidingMusicPanelActivity {
 
@@ -57,8 +60,9 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     public static final int APP_INTRO_REQUEST = 100;
     public static final int PURCHASE_REQUEST = 101;
 
-    private static final int LIBRARY = 0;
-    private static final int FOLDERS = 1;
+    private static final int MUSIC = 1;
+    private static final int VIDEO = 2;
+    private static final int FOLDERS = 0;
 
     @BindView(R.id.navigation_view)
     NavigationView navigationView;
@@ -77,6 +81,12 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final Fabric fabric = new Fabric.Builder(this)
+                .kits(new Crashlytics())
+                .debuggable(true)           // Enables Crashlytics debugger
+                .build();
+        Fabric.with(fabric);
+
         ButterKnife.bind(this);
         DeviceUtil.getNetworkOperatorName(this);
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
@@ -110,18 +120,22 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
         if (!App.isProVersion() && key == FOLDERS) {
             Toast.makeText(this, R.string.folder_view_is_a_pro_feature, Toast.LENGTH_LONG).show();
             startActivityForResult(new Intent(this, PurchaseActivity.class), PURCHASE_REQUEST);
-            key = LIBRARY;
+            key = MUSIC;
         }
 
         PreferenceUtil.getInstance(this).setLastMusicChooser(key);
         switch (key) {
-            case LIBRARY:
+            case MUSIC:
                 navigationView.setCheckedItem(R.id.nav_library);
                 setCurrentFragment(LibraryFragment.newInstance());
                 break;
             case FOLDERS:
                 navigationView.setCheckedItem(R.id.nav_folders);
                 setCurrentFragment(FoldersFragment.newInstance(this));
+                break;
+            case VIDEO:
+                navigationView.setCheckedItem(R.id.nav_files);
+                setCurrentFragment(FilesFragment.newInstance());
                 break;
             default:
         }
@@ -176,10 +190,13 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
             drawerLayout.closeDrawers();
             switch (menuItem.getItemId()) {
                 case R.id.nav_library:
-                    new Handler().postDelayed(() -> setMusicChooser(LIBRARY), 200);
+                    new Handler().postDelayed(() -> setMusicChooser(MUSIC), 200);
                     break;
                 case R.id.nav_folders:
                     new Handler().postDelayed(() -> setMusicChooser(FOLDERS), 200);
+                    break;
+                case R.id.nav_files:
+                    new Handler().postDelayed(() -> setMusicChooser(VIDEO),200);
                     break;
                 case R.id.buy_pro:
                     new Handler().postDelayed(() -> startActivityForResult(new Intent(MainActivity.this, PurchaseActivity.class), PURCHASE_REQUEST), 200);
@@ -251,6 +268,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        Crashlytics.getInstance().crash(); // Force a crash
         if (item.getItemId() == android.R.id.home) {
             if (drawerLayout.isDrawerOpen(navigationView)) {
                 drawerLayout.closeDrawer(navigationView);

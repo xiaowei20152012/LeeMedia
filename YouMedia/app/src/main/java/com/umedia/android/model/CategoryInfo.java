@@ -7,13 +7,17 @@ import com.umedia.android.R;
 
 public class CategoryInfo implements Parcelable {
     public Category category;
+    public FileCategory fileCategory;
     public boolean visible;
 
     public CategoryInfo(Category category, boolean visible) {
         this.category = category;
         this.visible = visible;
     }
-
+    public CategoryInfo(FileCategory category, boolean visible) {
+        this.fileCategory = category;
+        this.visible = visible;
+    }
     private CategoryInfo(Parcel source) {
         category = (Category) source.readSerializable();
         visible = source.readInt() == 1;
@@ -50,6 +54,18 @@ public class CategoryInfo implements Parcelable {
         public final int stringRes;
 
         Category(int stringRes) {
+            this.stringRes = stringRes;
+        }
+    }
+    public enum FileCategory {
+        VIDEO(R.string.songs),
+        MUSIC(R.string.albums),
+        PICTURE(R.string.artists),
+        OTHER(R.string.genres);
+
+        public final int stringRes;
+
+        FileCategory(int stringRes) {
             this.stringRes = stringRes;
         }
     }

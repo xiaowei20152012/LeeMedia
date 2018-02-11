@@ -473,4 +473,13 @@ public final class PreferenceUtil {
         defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.Category.PLAYLISTS, true));
         return defaultCategoryInfos;
     }
+
+    public ArrayList<CategoryInfo> getDefaultFileCategoryInfos() {
+        ArrayList<CategoryInfo> defaultCategoryInfos = new ArrayList<>(4);
+        defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.FileCategory.VIDEO, true));
+        defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.FileCategory.MUSIC, true));
+        defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.FileCategory.PICTURE, true));
+        defaultCategoryInfos.add(new CategoryInfo(CategoryInfo.FileCategory.OTHER, true));
+        return defaultCategoryInfos;
+    }
 }

@@ -110,7 +110,8 @@
             android:minHeight="@dimen/md_listitem_height"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:visibility="gone">
 
             <com.umedia.android.views.IconImageView
                 android:id="@+id/icon_google_plus"
@@ -141,7 +142,8 @@
             android:minHeight="@dimen/md_listitem_height"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:visibility="gone">
 
             <com.umedia.android.views.IconImageView
                 android:id="@+id/icon_twitter"
@@ -172,7 +174,8 @@
             android:minHeight="@dimen/md_listitem_height"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:visibility="gone">
 
             <com.umedia.android.views.IconImageView
                 android:id="@+id/icon_website"
