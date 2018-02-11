@@ -8,11 +8,14 @@ import android.support.v4.content.Loader;
 import android.support.v7.widget.GridLayoutManager;
 
 import com.umedia.android.R;
+import com.umedia.android.adapter.files.ShuffleButtonVideoAdapter;
+import com.umedia.android.adapter.files.VideoAdapter;
 import com.umedia.android.adapter.song.ShuffleButtonSongAdapter;
 import com.umedia.android.adapter.song.SongAdapter;
 import com.umedia.android.interfaces.LoaderIds;
 import com.umedia.android.loader.SongLoader;
 import com.umedia.android.misc.WrappedAsyncTaskLoader;
+import com.umedia.android.model.FileInfo;
 import com.umedia.android.model.Song;
 import com.umedia.android.ui.fragments.mainactivity.files.pager.FilesPagerRecyclerViewCustomGridSizeFragment;
 import com.umedia.android.util.PreferenceUtil;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
 
 /**
  */
-public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragment<SongAdapter, GridLayoutManager> implements LoaderManager.LoaderCallbacks<ArrayList<Song>> {
+public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragment<VideoAdapter, GridLayoutManager> implements LoaderManager.LoaderCallbacks<ArrayList<FileInfo>> {
 
     public static final String TAG = FileVideoFragment.class.getSimpleName();
 
@@ -41,21 +44,21 @@ public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragm
 
     @NonNull
     @Override
-    protected SongAdapter createAdapter() {
+    protected VideoAdapter createAdapter() {
         int itemLayoutRes = getItemLayoutRes();
         notifyLayoutResChanged(itemLayoutRes);
         boolean usePalette = loadUsePalette();
-        ArrayList<Song> dataSet = getAdapter() == null ? new ArrayList<Song>() : getAdapter().getDataSet();
+        ArrayList<FileInfo> dataSet = getAdapter() == null ? new ArrayList<FileInfo>() : getAdapter().getDataSet();
 
         if (getGridSize() <= getMaxGridSizeForList()) {
-            return new ShuffleButtonSongAdapter(
+            return new ShuffleButtonVideoAdapter(
                     getLibraryFragment().getMainActivity(),
                     dataSet,
                     itemLayoutRes,
                     usePalette,
                     getLibraryFragment());
         }
-        return new SongAdapter(
+        return new VideoAdapter(
                 getLibraryFragment().getMainActivity(),
                 dataSet,
                 itemLayoutRes,
@@ -115,28 +118,29 @@ public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragm
     }
 
     @Override
-    public Loader<ArrayList<Song>> onCreateLoader(int id, Bundle args) {
+    public Loader<ArrayList<FileInfo>> onCreateLoader(int id, Bundle args) {
         return new AsyncSongLoader(getActivity());
     }
 
     @Override
-    public void onLoadFinished(Loader<ArrayList<Song>> loader, ArrayList<Song> data) {
+    public void onLoadFinished(Loader<ArrayList<FileInfo>> loader, ArrayList<FileInfo> data) {
         getAdapter().swapDataSet(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<ArrayList<Song>> loader) {
-        getAdapter().swapDataSet(new ArrayList<Song>());
+    public void onLoaderReset(Loader<ArrayList<FileInfo>> loader) {
+        getAdapter().swapDataSet(new ArrayList<FileInfo>());
     }
 
-    private static class AsyncSongLoader extends WrappedAsyncTaskLoader<ArrayList<Song>> {
+    private static class AsyncSongLoader extends WrappedAsyncTaskLoader<ArrayList<FileInfo>> {
         public AsyncSongLoader(Context context) {
             super(context);
         }
 
         @Override
-        public ArrayList<Song> loadInBackground() {
-            return SongLoader.getAllSongs(getContext());
+        public ArrayList<FileInfo> loadInBackground() {
+            return new ArrayList<>();
+//            return SongLoader.getAllSongs(getContext());
         }
     }
 }
