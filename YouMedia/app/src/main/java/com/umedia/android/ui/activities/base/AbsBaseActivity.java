@@ -17,6 +17,7 @@ import android.view.View;
 
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.umedia.android.R;
+import com.umedia.android.track.TrackEvent;
 
 /**
  * @author Lee (kabouzeid)
@@ -27,11 +28,13 @@ public abstract class AbsBaseActivity extends AbsThemeActivity {
     private boolean hadPermissions;
     private String[] permissions;
     private String permissionDeniedMessage;
+    private TrackEvent trackEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        trackEvent = TrackEvent.getInstance(this);
 
         permissions = getPermissionsToRequest();
         hadPermissions = hasPermissions();
@@ -57,6 +60,7 @@ public abstract class AbsBaseActivity extends AbsThemeActivity {
                 onHasPermissionsChanged(hasPermissions);
             }
         }
+        trackEvent.trackEvent();
     }
 
     protected void onHasPermissionsChanged(boolean hasPermissions) {

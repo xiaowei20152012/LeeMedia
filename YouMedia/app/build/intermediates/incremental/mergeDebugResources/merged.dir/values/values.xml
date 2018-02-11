@@ -1540,7 +1540,7 @@
     <string name="clear_playlist_title">Clear playlist</string>
     <string name="clear_playlist_x"><![CDATA[Clear the playlist <b>%1$s</b>? This can\u2019t be undone!]]></string>
     <string name="colored_footers">Colored footers</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">8d90cc78-c74e-497f-ae3e-f803b90f749d</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">7a5d9925-72fd-4de7-bc95-adc04270f2f1</string>
     <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
     <string name="copied_device_info_to_clipboard">Copied device info to clipboard.</string>
     <string name="could_not_create_playlist">Couldn\u2019t create playlist.</string>
@@ -1551,6 +1551,7 @@
     <string name="created_playlist_x">Created playlist %1$s.</string>
     <string name="currently_listening_to_x_by_x">Currently listening to %1$s by %2$s.</string>
     <string name="dark_theme_name">Dark</string>
+    <string name="default_web_client_id" translatable="false">749525433477-iqk696slvejl09c4jblfd0un21qq0qtm.apps.googleusercontent.com</string>
     <string name="delete_action">Delete</string>
     <string name="delete_playlist_title">Delete playlist</string>
     <string name="delete_playlist_x"><![CDATA[Delete the playlist <b>%1$s</b>?]]></string>
@@ -1574,15 +1575,21 @@
     <string name="eugene_cheung_summary">For his contributions to the source code.</string>
     <string name="failed_to_save_playlist">Failed to save playlist (%s).</string>
     <string name="favorites">Favorites</string>
+    <string name="firebase_database_url" translatable="false">https://xiaowei20152012.firebaseio.com</string>
     <string name="flat">Flat</string>
     <string name="folder_view_is_a_pro_feature">Folder view is a Phonograph Pro feature.</string>
     <string name="folders">Folders</string>
     <string name="follow_on_twitter">Follow on Twitter</string>
     <string name="fork_on_github">Fork on GitHub</string>
+    <string name="gcm_defaultSenderId" translatable="false">749525433477</string>
     <string name="genre">Genre</string>
     <string name="genres">Genres</string>
     <string name="git_hub" translatable="false">GitHub</string>
+    <string name="google_api_key" translatable="false">AIzaSyA_4AR_qGKKLnWyyTvV7-Vrj2DhH1OvvIY</string>
+    <string name="google_app_id" translatable="false">1:749525433477:android:6cd8dbb8d3e3cc5a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA_4AR_qGKKLnWyyTvV7-Vrj2DhH1OvvIY</string>
     <string name="google_plus" translatable="false">Google Plus</string>
+    <string name="google_storage_bucket" translatable="false">xiaowei20152012.appspot.com</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>
     <string name="grid_size_3">3</string>
@@ -1759,6 +1766,7 @@
     <string name="pref_title_synchronized_lyrics_show">Show synchronized lyrics</string>
     <string name="primary_color">Primary color</string>
     <string name="primary_color_desc">The primary theme color, defaults to indigo.</string>
+    <string name="project_id" translatable="false">xiaowei20152012</string>
     <string name="purchase">Purchase</string>
     <string name="rate_on_google_play">Rate</string>
     <string name="rate_on_google_play_summary">Leave a positive rating on Google Play if you like Phonograph.</string>

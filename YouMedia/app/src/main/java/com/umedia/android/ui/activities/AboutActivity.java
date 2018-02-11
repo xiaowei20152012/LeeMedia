@@ -17,6 +17,7 @@ import com.afollestad.materialdialogs.internal.ThemeSingleton;
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.umedia.android.App;
 import com.umedia.android.R;
+import com.umedia.android.datasource.local.LocalFileDataSource;
 import com.umedia.android.dialogs.ChangelogDialog;
 import com.umedia.android.dialogs.DonationsDialog;
 import com.umedia.android.ui.activities.base.AbsBaseActivity;
@@ -115,6 +116,7 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
         setTaskDescriptionColorAuto();
 
         setUpViews();
+        LocalFileDataSource.getInstance().preLoad(this);
     }
 
     private void setUpViews() {

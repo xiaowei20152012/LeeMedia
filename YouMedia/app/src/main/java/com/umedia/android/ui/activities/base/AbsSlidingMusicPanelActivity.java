@@ -22,6 +22,7 @@ import com.umedia.android.ui.fragments.player.MiniPlayerFragment;
 import com.umedia.android.ui.fragments.player.NowPlayingScreen;
 import com.umedia.android.ui.fragments.player.card.CardPlayerFragment;
 import com.umedia.android.ui.fragments.player.flat.FlatPlayerFragment;
+import com.umedia.android.util.InputMethodManagerUtil;
 import com.umedia.android.util.PreferenceUtil;
 import com.umedia.android.util.ViewUtil;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -270,6 +271,7 @@ public abstract class AbsSlidingMusicPanelActivity extends AbsMusicServiceActivi
 
     @Override
     protected void onDestroy() {
+        InputMethodManagerUtil.fixInputMethodManagerLeak(this);
         super.onDestroy();
         if (navigationBarColorAnimator != null) navigationBarColorAnimator.cancel(); // just in case
     }
