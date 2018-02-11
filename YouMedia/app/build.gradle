@@ -147,3 +147,4 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation project(':commonlib')
 }
+apply plugin: 'com.google.gms.google-services'

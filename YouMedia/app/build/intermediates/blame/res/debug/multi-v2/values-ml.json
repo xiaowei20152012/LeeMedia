@@ -1,62 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/wei.li/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ml/values-ml.xml",
-            "map": [
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/c0e024f6793c4cf5a20f18e02a4e6844/res/values-ml/values-ml.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "21",
-                        "startColumns": "4",
-                        "startOffsets": "2223",
-                        "endColumns": "100",
-                        "endOffsets": "2319"
-                    }
-                },
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.4.2.aar/b53060e90059dd8d2ce429669c764afa/res/values-ml/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "218",
-                        "endOffsets": "503"
-                    },
-                    "to": {
-                        "startLines": "19",
-                        "startColumns": "4",
-                        "startOffsets": "1922",
-                        "endColumns": "218",
-                        "endOffsets": "2136"
-                    }
-                },
-                {
-                    "source": "/Users/wei.li/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/2168b968e8f55e01a7f1a65361d0bd95/res/values-ml/values-ml.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,224,342,457,550,655,787,864,940,1022,1133,1239,1337,1451,1551,1662,1821,1922",
-                        "endColumns": "118,117,114,92,104,131,76,75,81,110,105,97,113,99,110,158,100,81",
-                        "endOffsets": "219,337,452,545,650,782,859,935,1017,1128,1234,1332,1446,1546,1657,1816,1917,1999"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,224,342,457,550,655,787,864,940,1022,1133,1239,1337,1451,1551,1662,1821,2141",
-                        "endColumns": "118,117,114,92,104,131,76,75,81,110,105,97,113,99,110,158,100,81",
-                        "endOffsets": "219,337,452,545,650,782,859,935,1017,1128,1234,1332,1446,1546,1657,1816,1917,2218"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/liwei/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ml/values-ml.xml",
             "map": [
                 {

@@ -85,6 +85,44 @@ public final class FileUtil {
         return fileList;
     }
 
+    //no recursion
+    public static LinkedList<File> listLinkedFiles(@NonNull File directory,@Nullable FileFilter fileFilter) {
+        LinkedList<File> realListFile = new LinkedList<>();
+        LinkedList<File> list = new LinkedList<File>();//所有文件夹集合
+        File[] file = directory.listFiles(fileFilter);
+        for (File file1:file) {
+            if (file1.isDirectory()) {
+                list.add(file1);
+            } else {
+                realListFile.add(file1);
+                System.out.println(file1.getAbsolutePath());
+            }
+        }
+        File tmp;
+        while (!list.isEmpty()) {
+            tmp = (File) list.removeFirst();
+            if (tmp.isDirectory()) {
+                file = tmp.listFiles(fileFilter);
+                if (file == null) {
+                    continue;
+                }
+                for (File file2:file) {
+                    if (file2.isDirectory()) {
+                        list.add(file2);
+                    } else {
+                        realListFile.add(file2);
+                        System.out.println(file2.getAbsolutePath());
+                    }
+                }
+            } else {
+                realListFile.add(tmp);
+                System.out.println(tmp.getAbsolutePath());
+            }
+        }
+        return realListFile;
+    }
+
+
     @NonNull
     public static List<File> listFilesDeep(@NonNull File directory, @Nullable FileFilter fileFilter) {
         List<File> files = new LinkedList<>();
@@ -107,7 +145,9 @@ public final class FileUtil {
 
     private static void internalListFilesDeep(@NonNull Collection<File> files, @NonNull File directory, @Nullable FileFilter fileFilter) {
         File[] found = directory.listFiles(fileFilter);
-
+        if (files.size() > 200) {
+            return;
+        }
         if (found != null) {
             for (File file : found) {
                 if (file.isDirectory()) {

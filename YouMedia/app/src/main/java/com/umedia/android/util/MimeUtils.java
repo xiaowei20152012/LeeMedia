@@ -26,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 
@@ -487,4 +488,16 @@ public final class MimeUtils {
         }
         return mimeTypeToExtensionMap.get(mimeType);
     }
+
+
+    public static HashSet<String> sDocMimeTypesSet = new HashSet<String>() {
+        {
+            add("text/plain");
+            add("text/plain");
+            add("application/pdf");
+            add("application/msword");
+            add("application/vnd.ms-excel");
+            add("application/vnd.ms-excel");
+        }
+    };
 }

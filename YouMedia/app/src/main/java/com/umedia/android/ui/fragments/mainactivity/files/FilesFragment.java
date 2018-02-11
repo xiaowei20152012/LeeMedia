@@ -1,242 +1,160 @@
 package com.umedia.android.ui.fragments.mainactivity.files;
 
 
-import android.app.Dialog;
-import android.content.Context;
-import android.media.MediaScannerConnection;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import com.afollestad.materialcab.MaterialCab;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.kabouzeid.appthemehelper.ThemeStore;
 import com.kabouzeid.appthemehelper.common.ATHToolbarActivity;
+import com.kabouzeid.appthemehelper.util.TabLayoutUtil;
 import com.kabouzeid.appthemehelper.util.ToolbarContentTintHelper;
-import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 import com.umedia.android.R;
-import com.umedia.android.adapter.SongFileAdapter;
+import com.umedia.android.adapter.FilesPagerAdapter;
+import com.umedia.android.dialogs.CreatePlaylistDialog;
 import com.umedia.android.helper.MusicPlayerRemote;
-import com.umedia.android.helper.menu.SongMenuHelper;
-import com.umedia.android.helper.menu.SongsMenuHelper;
 import com.umedia.android.interfaces.CabHolder;
-import com.umedia.android.interfaces.LoaderIds;
-import com.umedia.android.misc.DialogAsyncTask;
-import com.umedia.android.misc.UpdateToastMediaScannerCompletionListener;
-import com.umedia.android.misc.WrappedAsyncTaskLoader;
-import com.umedia.android.model.Song;
+import com.umedia.android.loader.SongLoader;
 import com.umedia.android.ui.activities.MainActivity;
+import com.umedia.android.ui.activities.SearchActivity;
 import com.umedia.android.ui.fragments.mainactivity.AbsMainActivityFragment;
-import com.umedia.android.util.FileUtil;
+import com.umedia.android.ui.fragments.mainactivity.library.pager.AbsLibraryPagerRecyclerViewCustomGridSizeFragment;
+import com.umedia.android.ui.fragments.mainactivity.library.pager.PlaylistsFragment;
 import com.umedia.android.util.PhonographColorUtil;
 import com.umedia.android.util.PreferenceUtil;
-import com.umedia.android.util.ViewUtil;
-import com.umedia.android.views.BreadCrumbLayout;
-
-import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import com.umedia.android.util.Util;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FilesFragment extends AbsMainActivityFragment implements MainActivity.MainActivityFragmentCallbacks, CabHolder, BreadCrumbLayout.SelectionCallback, SongFileAdapter.Callbacks, AppBarLayout.OnOffsetChangedListener, LoaderManager.LoaderCallbacks<List<File>> {
+/**
+ * file home fragment
+ */
+public class FilesFragment extends AbsMainActivityFragment implements CabHolder, MainActivity.MainActivityFragmentCallbacks, ViewPager.OnPageChangeListener, SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String TAG = FilesFragment.class.getSimpleName();
-
-    private static final int LOADER_ID = LoaderIds.FOLDERS_FRAGMENT;
-
-    protected static final String PATH = "path";
-    protected static final String CRUMBS = "crumbs";
 
     private Unbinder unbinder;
 
-    @BindView(R.id.coordinator_layout)
-    CoordinatorLayout coordinatorLayout;
-    @BindView(R.id.container)
-    View container;
-    @BindView(android.R.id.empty)
-    View empty;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.bread_crumbs)
-    BreadCrumbLayout breadCrumbs;
+    @BindView(R.id.tabs)
+    TabLayout tabs;
     @BindView(R.id.appbar)
     AppBarLayout appbar;
-    @BindView(R.id.recycler_view)
-    FastScrollRecyclerView recyclerView;
+    @BindView(R.id.pager)
+    ViewPager pager;
 
-    private SongFileAdapter adapter;
+    private FilesPagerAdapter pagerAdapter;
     private MaterialCab cab;
+
+    public static FilesFragment newInstance() {
+        return new FilesFragment();
+    }
 
     public FilesFragment() {
     }
 
-    public static FilesFragment newInstance(Context context) {
-        return newInstance(PreferenceUtil.getInstance(context).getStartDirectory());
-    }
-
-    public static FilesFragment newInstance(File directory) {
-        FilesFragment frag = new FilesFragment();
-        Bundle b = new Bundle();
-        b.putSerializable(PATH, directory);
-        frag.setArguments(b);
-        return frag;
-    }
-
-    public void setCrumb(BreadCrumbLayout.Crumb crumb, boolean addToHistory) {
-        if (crumb == null) return;
-        saveScrollPosition();
-        breadCrumbs.setActiveOrAdd(crumb, false);
-        if (addToHistory) {
-            breadCrumbs.addHistory(crumb);
-        }
-        getLoaderManager().restartLoader(LOADER_ID, null, this);
-    }
-
-    private void saveScrollPosition() {
-        BreadCrumbLayout.Crumb crumb = getActiveCrumb();
-        if (crumb != null) {
-            crumb.setScrollPosition(((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition());
-        }
-    }
-
-    @Nullable
-    private BreadCrumbLayout.Crumb getActiveCrumb() {
-        return breadCrumbs != null && breadCrumbs.size() > 0 ? breadCrumbs.getCrumb(breadCrumbs.getActiveIndex()) : null;
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(CRUMBS, breadCrumbs.getStateWrapper());
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (savedInstanceState == null) {
-            setCrumb(new BreadCrumbLayout.Crumb(tryGetCanonicalFile((File) getArguments().getSerializable(PATH))), true);
-        } else {
-            breadCrumbs.restoreFromStateWrapper(savedInstanceState.getParcelable(CRUMBS));
-            getLoaderManager().initLoader(LOADER_ID, null, this);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_folder, container, false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
     @Override
+    public void onDestroyView() {
+        PreferenceUtil.getInstance(getActivity()).unregisterOnSharedPreferenceChangedListener(this);
+        super.onDestroyView();
+        pager.removeOnPageChangeListener(this);
+        unbinder.unbind();
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        PreferenceUtil.getInstance(getActivity()).registerOnSharedPreferenceChangedListener(this);
         setStatusbarColorAuto(view);
         getMainActivity().setNavigationbarColorAuto();
         getMainActivity().setTaskDescriptionColorAuto();
 
-        setUpAppbarColor();
         setUpToolbar();
-        setUpBreadCrumbs();
-        setUpRecyclerView();
-        setUpAdapter();
+        setUpViewPager();
     }
 
-    private void setUpAppbarColor() {
-        int primaryColor = ThemeStore.primaryColor(getActivity());
-        appbar.setBackgroundColor(primaryColor);
-        toolbar.setBackgroundColor(primaryColor);
-        breadCrumbs.setBackgroundColor(primaryColor);
-        breadCrumbs.setActivatedContentColor(ToolbarContentTintHelper.toolbarTitleColor(getActivity(), primaryColor));
-        breadCrumbs.setDeactivatedContentColor(ToolbarContentTintHelper.toolbarSubtitleColor(getActivity(), primaryColor));
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {
+        if (PreferenceUtil.LIBRARY_CATEGORIES.equals(key)) {
+            Fragment current = getCurrentFragment();
+            pagerAdapter.setCategoryInfos(PreferenceUtil.getInstance(getActivity()).getLibraryCategoryInfos());
+            pager.setOffscreenPageLimit(pagerAdapter.getCount() - 1);
+            int position = pagerAdapter.getItemPosition(current);
+            if (position < 0) {
+                position = 0;
+            }
+            pager.setCurrentItem(position);
+            PreferenceUtil.getInstance(getContext()).setLastPage(position);
+
+            // hide the tab bar with single tab
+            tabs.setVisibility(pagerAdapter.getCount() == 1 ? View.GONE : View.VISIBLE);
+        }
     }
 
     private void setUpToolbar() {
+        int primaryColor = ThemeStore.primaryColor(getActivity());
+        appbar.setBackgroundColor(primaryColor);
+        toolbar.setBackgroundColor(primaryColor);
         toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         getActivity().setTitle(R.string.app_name);
         getMainActivity().setSupportActionBar(toolbar);
     }
 
-    private void setUpBreadCrumbs() {
-        breadCrumbs.setCallback(this);
-    }
+    private void setUpViewPager() {
+        pagerAdapter = new FilesPagerAdapter(getActivity(), getChildFragmentManager());
+        pager.setAdapter(pagerAdapter);
+        pager.setOffscreenPageLimit(pagerAdapter.getCount() - 1);
 
-    private void setUpRecyclerView() {
-        ViewUtil.setUpFastScrollRecyclerViewColor(getActivity(), recyclerView, ThemeStore.accentColor(getActivity()));
+        tabs.setupWithViewPager(pager);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        int primaryColor = ThemeStore.primaryColor(getActivity());
+        int normalColor = ToolbarContentTintHelper.toolbarSubtitleColor(getActivity(), primaryColor);
+        int selectedColor = ToolbarContentTintHelper.toolbarTitleColor(getActivity(), primaryColor);
+        TabLayoutUtil.setTabIconColors(tabs, normalColor, selectedColor);
+        tabs.setTabTextColors(normalColor, selectedColor);
+        tabs.setSelectedTabIndicatorColor(ThemeStore.accentColor(getActivity()));
 
-        appbar.addOnOffsetChangedListener(this);
-    }
-
-    private void setUpAdapter() {
-        adapter = new SongFileAdapter(getMainActivity(), new LinkedList<File>(), R.layout.item_list, this, this);
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                checkIsEmpty();
-            }
-        });
-        recyclerView.setAdapter(adapter);
-        checkIsEmpty();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        saveScrollPosition();
-    }
-
-    @Override
-    public void onDestroyView() {
-        appbar.removeOnOffsetChangedListener(this);
-        unbinder.unbind();
-        super.onDestroyView();
-    }
-
-    @Override
-    public boolean handleBackPress() {
-        if (cab != null && cab.isActive()) {
-            cab.finish();
-            return true;
+        if (PreferenceUtil.getInstance(getContext()).rememberLastTab()) {
+            pager.setCurrentItem(PreferenceUtil.getInstance(getContext()).getLastPage());
         }
-        if (breadCrumbs.popHistory()) {
-            setCrumb(breadCrumbs.lastHistory(), false);
-            return true;
-        }
-        return false;
+        pager.addOnPageChangeListener(this);
+    }
+
+    public Fragment getCurrentFragment() {
+        return pagerAdapter.getFragment(pager.getCurrentItem());
+    }
+
+    private boolean isPlaylistPage() {
+        return getCurrentFragment() instanceof PlaylistsFragment;
     }
 
     @NonNull
     @Override
-    public MaterialCab openCab(int menuRes, MaterialCab.Callback callback) {
+    public MaterialCab openCab(final int menuRes, final MaterialCab.Callback callback) {
         if (cab != null && cab.isActive()) cab.finish();
         cab = new MaterialCab(getMainActivity(), R.id.cab_stub)
                 .setMenu(menuRes)
@@ -246,431 +164,197 @@ public class FilesFragment extends AbsMainActivityFragment implements MainActivi
         return cab;
     }
 
+    public void addOnAppBarOffsetChangedListener(AppBarLayout.OnOffsetChangedListener onOffsetChangedListener) {
+        appbar.addOnOffsetChangedListener(onOffsetChangedListener);
+    }
+
+    public void removeOnAppBarOffsetChangedListener(AppBarLayout.OnOffsetChangedListener onOffsetChangedListener) {
+        appbar.removeOnOffsetChangedListener(onOffsetChangedListener);
+    }
+
+    public int getTotalAppBarScrollingRange() {
+        return appbar.getTotalScrollRange();
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_folders, menu);
+        if (pager == null) {
+            return;
+        }
+        inflater.inflate(R.menu.menu_main, menu);
+        if (isPlaylistPage()) {
+            menu.add(0, R.id.action_new_playlist, 0, R.string.new_playlist_title);
+        }
+        Fragment currentFragment = getCurrentFragment();
+        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment && currentFragment.isAdded()) {
+            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
+
+            MenuItem gridSizeItem = menu.findItem(R.id.action_grid_size);
+            if (Util.isLandscape(getResources())) {
+                gridSizeItem.setTitle(R.string.action_grid_size_land);
+            }
+            setUpGridSizeMenu(absLibraryRecyclerViewCustomGridSizeFragment, gridSizeItem.getSubMenu());
+
+            menu.findItem(R.id.action_colored_footers).setChecked(absLibraryRecyclerViewCustomGridSizeFragment.usePalette());
+            menu.findItem(R.id.action_colored_footers).setEnabled(absLibraryRecyclerViewCustomGridSizeFragment.canUsePalette());
+        } else {
+            menu.removeItem(R.id.action_grid_size);
+            menu.removeItem(R.id.action_colored_footers);
+        }
+        Activity activity = getActivity();
+        if (activity == null) return;
         ToolbarContentTintHelper.handleOnCreateOptionsMenu(getActivity(), toolbar, menu, ATHToolbarActivity.getToolbarBackgroundColor(toolbar));
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        ToolbarContentTintHelper.handleOnPrepareOptionsMenu(getActivity(), toolbar);
+        Activity activity = getActivity();
+        if (activity == null) return;
+        ToolbarContentTintHelper.handleOnPrepareOptionsMenu(activity, toolbar);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_go_to_start_directory:
-                setCrumb(new BreadCrumbLayout.Crumb(tryGetCanonicalFile(PreferenceUtil.getInstance(getActivity()).getStartDirectory())), true);
+        if (pager == null) {
+            return false;
+        }
+        Fragment currentFragment = getCurrentFragment();
+        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment) {
+            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
+            if (item.getItemId() == R.id.action_colored_footers) {
+                item.setChecked(!item.isChecked());
+                absLibraryRecyclerViewCustomGridSizeFragment.setAndSaveUsePalette(item.isChecked());
                 return true;
+            }
+            if (handleGridSizeMenuItem(absLibraryRecyclerViewCustomGridSizeFragment, item)) {
+                return true;
+            }
+        }
+
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_shuffle_all:
+                MusicPlayerRemote.openAndShuffleQueue(SongLoader.getAllSongs(getActivity()), true);
+                return true;
+            case R.id.action_new_playlist:
+                CreatePlaylistDialog.create().show(getChildFragmentManager(), "CREATE_PLAYLIST");
+                return true;
+            case R.id.action_search:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+                return true;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onCrumbSelection(BreadCrumbLayout.Crumb crumb, int index) {
-        setCrumb(crumb, true);
-    }
-
-    public static File getDefaultStartDirectory() {
-//        File musicDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
-        File musicDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File startFolder;
-        if (musicDir.exists() && musicDir.isDirectory()) {
-            startFolder = musicDir;
-        } else {
-            File externalStorage = Environment.getExternalStorageDirectory();
-            if (externalStorage.exists() && externalStorage.isDirectory()) {
-                startFolder = externalStorage;
-            } else {
-                startFolder = new File("/"); // root
-            }
+    private void setUpGridSizeMenu(@NonNull AbsLibraryPagerRecyclerViewCustomGridSizeFragment fragment, @NonNull SubMenu gridSizeMenu) {
+        switch (fragment.getGridSize()) {
+            case 1:
+                gridSizeMenu.findItem(R.id.action_grid_size_1).setChecked(true);
+                break;
+            case 2:
+                gridSizeMenu.findItem(R.id.action_grid_size_2).setChecked(true);
+                break;
+            case 3:
+                gridSizeMenu.findItem(R.id.action_grid_size_3).setChecked(true);
+                break;
+            case 4:
+                gridSizeMenu.findItem(R.id.action_grid_size_4).setChecked(true);
+                break;
+            case 5:
+                gridSizeMenu.findItem(R.id.action_grid_size_5).setChecked(true);
+                break;
+            case 6:
+                gridSizeMenu.findItem(R.id.action_grid_size_6).setChecked(true);
+                break;
+            case 7:
+                gridSizeMenu.findItem(R.id.action_grid_size_7).setChecked(true);
+                break;
+            case 8:
+                gridSizeMenu.findItem(R.id.action_grid_size_8).setChecked(true);
+                break;
+            default:
         }
-        return startFolder;
-    }
-
-    @Override
-    public void onFileSelected(File file) {
-        file = tryGetCanonicalFile(file); // important as we compare the path value later
-        if (file.isDirectory()) {
-            setCrumb(new BreadCrumbLayout.Crumb(file), true);
-        } else {
-            FileFilter fileFilter = pathname -> !pathname.isDirectory() && getFileFilter().accept(pathname);
-            new ListSongsAsyncTask(getActivity(), file, (songs, extra) -> {
-                File file1 = (File) extra;
-                int startIndex = -1;
-                for (int i = 0; i < songs.size(); i++) {
-                    if (file1.getPath().equals(songs.get(i).data)) { // path is already canonical here
-                        startIndex = i;
-                        break;
-                    }
-                }
-                if (startIndex > -1) {
-                    MusicPlayerRemote.openQueue(songs, startIndex, true);
-                } else {
-                    final File finalFile = file1;
-                    Snackbar.make(coordinatorLayout, Html.fromHtml(String.format(getString(R.string.not_listed_in_media_store), file1.getName())), Snackbar.LENGTH_LONG)
-                            .setAction(R.string.action_scan, v -> new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(finalFile, getFileFilter())))
-                            .setActionTextColor(ThemeStore.accentColor(getActivity()))
-                            .show();
-                }
-            }).execute(new ListSongsAsyncTask.LoadingInfo(toList(file.getParentFile()), fileFilter, getFileComparator()));
+        int maxGridSize = fragment.getMaxGridSize();
+        if (maxGridSize < 8) {
+            gridSizeMenu.findItem(R.id.action_grid_size_8).setVisible(false);
+        }
+        if (maxGridSize < 7) {
+            gridSizeMenu.findItem(R.id.action_grid_size_7).setVisible(false);
+        }
+        if (maxGridSize < 6) {
+            gridSizeMenu.findItem(R.id.action_grid_size_6).setVisible(false);
+        }
+        if (maxGridSize < 5) {
+            gridSizeMenu.findItem(R.id.action_grid_size_5).setVisible(false);
+        }
+        if (maxGridSize < 4) {
+            gridSizeMenu.findItem(R.id.action_grid_size_4).setVisible(false);
+        }
+        if (maxGridSize < 3) {
+            gridSizeMenu.findItem(R.id.action_grid_size_3).setVisible(false);
         }
     }
 
-    @Override
-    public void onMultipleItemAction(MenuItem item, ArrayList<File> files) {
-        final int itemId = item.getItemId();
-        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(files, getFileFilter(), getFileComparator()));
-    }
-
-    @Override
-    public void onFileMenuClicked(final File file, View view) {
-        PopupMenu popupMenu = new PopupMenu(getActivity(), view);
-        if (file.isDirectory()) {
-            popupMenu.inflate(R.menu.menu_item_directory);
-            popupMenu.setOnMenuItemClickListener(item -> {
-                final int itemId = item.getItemId();
-                switch (itemId) {
-                    case R.id.action_play_next:
-                    case R.id.action_add_to_current_playing:
-                    case R.id.action_add_to_playlist:
-                    case R.id.action_delete_from_device:
-                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(file), getFileFilter(), getFileComparator()));
-                        return true;
-                    case R.id.action_set_as_start_directory:
-                        PreferenceUtil.getInstance(getActivity()).setStartDirectory(file);
-                        Toast.makeText(getActivity(), String.format(getString(R.string.new_start_directory), file.getPath()), Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_scan:
-                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(file, getFileFilter()));
-                        return true;
-                }
-                return false;
-            });
-        } else {
-            popupMenu.inflate(R.menu.menu_item_file);
-            popupMenu.setOnMenuItemClickListener(item -> {
-                final int itemId = item.getItemId();
-                switch (itemId) {
-                    case R.id.action_play_next:
-                    case R.id.action_add_to_current_playing:
-                    case R.id.action_add_to_playlist:
-                    case R.id.action_go_to_album:
-                    case R.id.action_go_to_artist:
-                    case R.id.action_share:
-                    case R.id.action_tag_editor:
-                    case R.id.action_details:
-                    case R.id.action_set_as_ringtone:
-                    case R.id.action_delete_from_device:
-                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongMenuHelper.handleMenuClick(getActivity(), songs.get(0), itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(file), getFileFilter(), getFileComparator()));
-                        return true;
-                    case R.id.action_scan:
-                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(file, getFileFilter()));
-                        return true;
-                }
-                return false;
-            });
+    private boolean handleGridSizeMenuItem(@NonNull AbsLibraryPagerRecyclerViewCustomGridSizeFragment fragment, @NonNull MenuItem item) {
+        int gridSize = 0;
+        switch (item.getItemId()) {
+            case R.id.action_grid_size_1:
+                gridSize = 1;
+                break;
+            case R.id.action_grid_size_2:
+                gridSize = 2;
+                break;
+            case R.id.action_grid_size_3:
+                gridSize = 3;
+                break;
+            case R.id.action_grid_size_4:
+                gridSize = 4;
+                break;
+            case R.id.action_grid_size_5:
+                gridSize = 5;
+                break;
+            case R.id.action_grid_size_6:
+                gridSize = 6;
+                break;
+            case R.id.action_grid_size_7:
+                gridSize = 7;
+                break;
+            case R.id.action_grid_size_8:
+                gridSize = 8;
+                break;
+            default:
         }
-        popupMenu.show();
-    }
-
-    private ArrayList<File> toList(File file) {
-        ArrayList<File> files = new ArrayList<>(1);
-        files.add(file);
-        return files;
-    }
-
-    Comparator<File> fileComparator = (lhs, rhs) -> {
-        if (lhs.isDirectory() && !rhs.isDirectory()) {
-            return -1;
-        } else if (!lhs.isDirectory() && rhs.isDirectory()) {
-            return 1;
-        } else {
-            return lhs.getName().compareToIgnoreCase
-                    (rhs.getName());
+        if (gridSize > 0) {
+            item.setChecked(true);
+            fragment.setAndSaveGridSize(gridSize);
+            toolbar.getMenu().findItem(R.id.action_colored_footers).setEnabled(fragment.canUsePalette());
+            return true;
         }
-    };
-
-    private Comparator<File> getFileComparator() {
-        return fileComparator;
-    }
-
-    FileFilter audioFileFilter = file -> !file.isHidden() && (file.isDirectory() ||
-            FileUtil.fileIsMimeType(file, "audio/*", MimeTypeMap.getSingleton()) ||
-            FileUtil.fileIsMimeType(file, "application/ogg", MimeTypeMap.getSingleton())||
-            FileUtil.fileIsMimeType(file, "video/*", MimeTypeMap.getSingleton())||
-            FileUtil.fileIsMimeType(file, "image/*", MimeTypeMap.getSingleton()));
-
-    private FileFilter getFileFilter() {
-        return audioFileFilter;
+        return false;
     }
 
     @Override
-    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-        container.setPadding(container.getPaddingLeft(), container.getPaddingTop(), container.getPaddingRight(), appbar.getTotalScrollRange() + verticalOffset);
-    }
-
-    private void checkIsEmpty() {
-        if (empty != null) {
-            empty.setVisibility(adapter == null || adapter.getItemCount() == 0 ? View.VISIBLE : View.GONE);
+    public boolean handleBackPress() {
+        if (cab != null && cab.isActive()) {
+            cab.finish();
+            return true;
         }
-    }
-
-    private static File tryGetCanonicalFile(File file) {
-        try {
-            return file.getCanonicalFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return file;
-        }
-    }
-
-    private void scanPaths(@Nullable String[] toBeScanned) {
-        if (getActivity() == null) return;
-        if (toBeScanned == null || toBeScanned.length < 1) {
-            Toast.makeText(getActivity(), R.string.nothing_to_scan, Toast.LENGTH_SHORT).show();
-        } else {
-            MediaScannerConnection.scanFile(getActivity().getApplicationContext(), toBeScanned, null, new UpdateToastMediaScannerCompletionListener(getActivity(), toBeScanned));
-        }
-    }
-
-    private void updateAdapter(@NonNull List<File> files) {
-        adapter.swapDataSet(files);
-        BreadCrumbLayout.Crumb crumb = getActiveCrumb();
-        if (crumb != null && recyclerView != null) {
-            ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPositionWithOffset(crumb.getScrollPosition(), 0);
-        }
+        return false;
     }
 
     @Override
-    public Loader<List<File>> onCreateLoader(int id, Bundle args) {
-        return new AsyncFileLoader(this);
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 
     @Override
-    public void onLoadFinished(Loader<List<File>> loader, List<File> data) {
-        updateAdapter(data);
+    public void onPageSelected(int position) {
+        PreferenceUtil.getInstance(getActivity()).setLastPage(position);
     }
 
     @Override
-    public void onLoaderReset(Loader<List<File>> loader) {
-        updateAdapter(new LinkedList<File>());
-    }
-
-    private static class AsyncFileLoader extends WrappedAsyncTaskLoader<List<File>> {
-        private WeakReference<FilesFragment> fragmentWeakReference;
-
-        public AsyncFileLoader(FilesFragment foldersFragment) {
-            super(foldersFragment.getActivity());
-            fragmentWeakReference = new WeakReference<>(foldersFragment);
-        }
-
-        @Override
-        public List<File> loadInBackground() {
-            FilesFragment foldersFragment = fragmentWeakReference.get();
-            File directory = null;
-            if (foldersFragment != null) {
-                BreadCrumbLayout.Crumb crumb = foldersFragment.getActiveCrumb();
-                if (crumb != null) {
-                    directory = crumb.getFile();
-                }
-            }
-            if (directory != null) {
-                List<File> files = FileUtil.listFiles(directory, foldersFragment.getFileFilter());
-                Collections.sort(files, foldersFragment.getFileComparator());
-                return files;
-            } else {
-                return new LinkedList<>();
-            }
-        }
-    }
-
-    private static class ListSongsAsyncTask extends ListingFilesDialogAsyncTask<ListSongsAsyncTask.LoadingInfo, Void, ArrayList<Song>> {
-        private WeakReference<Context> contextWeakReference;
-        private WeakReference<OnSongsListedCallback> callbackWeakReference;
-        private final Object extra;
-
-        public ListSongsAsyncTask(Context context, Object extra, OnSongsListedCallback callback) {
-            super(context);
-            this.extra = extra;
-            contextWeakReference = new WeakReference<>(context);
-            callbackWeakReference = new WeakReference<>(callback);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            checkCallbackReference();
-            checkContextReference();
-        }
-
-        @Override
-        protected ArrayList<Song> doInBackground(LoadingInfo... params) {
-            try {
-                LoadingInfo info = params[0];
-                List<File> files = FileUtil.listFilesDeep(info.files, info.fileFilter);
-
-                if (isCancelled() || checkContextReference() == null || checkCallbackReference() == null)
-                    return null;
-
-                Collections.sort(files, info.fileComparator);
-
-                Context context = checkContextReference();
-                if (isCancelled() || context == null || checkCallbackReference() == null)
-                    return null;
-
-                return FileUtil.matchFilesWithMediaStore(context, files);
-            } catch (Exception e) {
-                e.printStackTrace();
-                cancel(false);
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<Song> songs) {
-            super.onPostExecute(songs);
-            OnSongsListedCallback callback = checkCallbackReference();
-            if (songs != null && callback != null && !songs.isEmpty())
-                callback.onSongsListed(songs, extra);
-        }
-
-        private Context checkContextReference() {
-            Context context = contextWeakReference.get();
-            if (context == null) {
-                cancel(false);
-            }
-            return context;
-        }
-
-        private OnSongsListedCallback checkCallbackReference() {
-            OnSongsListedCallback callback = callbackWeakReference.get();
-            if (callback == null) {
-                cancel(false);
-            }
-            return callback;
-        }
-
-        public static class LoadingInfo {
-            public final Comparator<File> fileComparator;
-            public final FileFilter fileFilter;
-            public final List<File> files;
-
-            public LoadingInfo(@NonNull List<File> files, @NonNull FileFilter fileFilter, @NonNull Comparator<File> fileComparator) {
-                this.fileComparator = fileComparator;
-                this.fileFilter = fileFilter;
-                this.files = files;
-            }
-        }
-
-        public interface OnSongsListedCallback {
-            void onSongsListed(@NonNull ArrayList<Song> songs, Object extra);
-        }
-    }
-
-    private static class ListPathsAsyncTask extends ListingFilesDialogAsyncTask<ListPathsAsyncTask.LoadingInfo, String, String[]> {
-        private WeakReference<OnPathsListedCallback> onPathsListedCallbackWeakReference;
-
-        public ListPathsAsyncTask(Context context, OnPathsListedCallback callback) {
-            super(context);
-            onPathsListedCallbackWeakReference = new WeakReference<>(callback);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            checkCallbackReference();
-        }
-
-        @Override
-        protected String[] doInBackground(LoadingInfo... params) {
-            try {
-                if (isCancelled() || checkCallbackReference() == null) return null;
-
-                LoadingInfo info = params[0];
-
-                final String[] paths;
-
-                if (info.file.isDirectory()) {
-                    List<File> files = FileUtil.listFilesDeep(info.file, info.fileFilter);
-
-                    if (isCancelled() || checkCallbackReference() == null) return null;
-
-                    paths = new String[files.size()];
-                    for (int i = 0; i < files.size(); i++) {
-                        File f = files.get(i);
-                        paths[i] = FileUtil.safeGetCanonicalPath(f);
-
-                        if (isCancelled() || checkCallbackReference() == null) return paths;
-                    }
-                } else {
-                    paths = new String[1];
-                    paths[0] = info.file.getPath();
-                }
-
-                return paths;
-            } catch (Exception e) {
-                e.printStackTrace();
-                cancel(false);
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String[] paths) {
-            super.onPostExecute(paths);
-            OnPathsListedCallback callback = checkCallbackReference();
-            if (callback != null) {
-                callback.onPathsListed(paths);
-            }
-        }
-
-        private OnPathsListedCallback checkCallbackReference() {
-            OnPathsListedCallback callback = onPathsListedCallbackWeakReference.get();
-            if (callback == null) {
-                cancel(false);
-            }
-            return callback;
-        }
-
-        public static class LoadingInfo {
-            public final File file;
-            public final FileFilter fileFilter;
-
-            public LoadingInfo(File file, FileFilter fileFilter) {
-                this.file = file;
-                this.fileFilter = fileFilter;
-            }
-        }
-
-        public interface OnPathsListedCallback {
-            void onPathsListed(@Nullable String[] paths);
-        }
-    }
-
-    private static abstract class ListingFilesDialogAsyncTask<Params, Progress, Result> extends DialogAsyncTask<Params, Progress, Result> {
-        public ListingFilesDialogAsyncTask(Context context) {
-            super(context);
-        }
-
-        public ListingFilesDialogAsyncTask(Context context, int showDelay) {
-            super(context, showDelay);
-        }
-
-        @Override
-        protected Dialog createDialog(@NonNull Context context) {
-            return new MaterialDialog.Builder(context)
-                    .title(R.string.listing_files)
-                    .progress(true, 0)
-                    .progressIndeterminateStyle(true)
-                    .cancelListener(dialog -> cancel(false))
-                    .dismissListener(dialog -> cancel(false))
-                    .negativeText(android.R.string.cancel)
-                    .onNegative((dialog, which) -> cancel(false))
-                    .show();
-        }
+    public void onPageScrollStateChanged(int state) {
     }
 }
