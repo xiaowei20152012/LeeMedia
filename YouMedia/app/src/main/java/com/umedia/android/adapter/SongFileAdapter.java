@@ -89,7 +89,7 @@ public class SongFileAdapter extends AbsMultiSelectAdapter<SongFileAdapter.ViewH
         }
         if (holder.text != null) {
             if (holder.getItemViewType() == FILE) {
-                holder.text.setText(getFileText(file));
+//                holder.text.setText(getFileText(file));
             } else {
                 holder.text.setVisibility(View.GONE);
             }
