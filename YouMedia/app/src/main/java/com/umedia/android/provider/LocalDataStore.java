@@ -16,17 +16,24 @@
 
 package com.umedia.android.provider;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+
+import com.umedia.android.model.FileInfo;
 
 /**
  * This database tracks the number of all local files  This is used to drive
  * the total datas
  */
 public class LocalDataStore extends SQLiteOpenHelper {
+    private static final int MAX_ITEMS_IN_DB = 500;
+
     @Nullable
     private static LocalDataStore instance = null;
 
@@ -66,7 +73,11 @@ public class LocalDataStore extends SQLiteOpenHelper {
         builder.append(" int ,");
         builder.append(LocalDataColumns.MODIFIED_DATE);
         builder.append(" long,");
+        builder.append(LocalDataColumns.TIME_PLAYED);
+        builder.append(" long,");
         builder.append(LocalDataColumns.SELECTED);
+        builder.append(" int default 0,");
+        builder.append(LocalDataColumns.FILE_TYPE);
         builder.append(" int default 0,");
         builder.append(LocalDataColumns.CAN_READ);
         builder.append(" int default 0,");
@@ -104,11 +115,95 @@ public class LocalDataStore extends SQLiteOpenHelper {
     }
 
 
+    public void addFileInfo(final FileInfo fileInfo) {
+        if (TextUtils.isEmpty(fileInfo.fileName)) {
+            return;
+        }
 
+        final SQLiteDatabase database = getWritableDatabase();
+        database.beginTransaction();
 
+        try {
+            // remove previous entries
+            removeFileInfo(fileInfo.fileName);
 
+            // add the entry
+            final ContentValues values = new ContentValues(2);
+            values.put(LocalDataColumns.FILE_NAME, fileInfo.fileName);
+            values.put(LocalDataColumns.FILE_PATH, fileInfo.filePath);
+            values.put(LocalDataColumns.FILE_SIZE, fileInfo.fileSize);
+            values.put(LocalDataColumns.MODIFIED_DATE, fileInfo.modifiedDate);
+            values.put(LocalDataColumns.IS_DIR, fileInfo.isDir);
+            values.put(LocalDataColumns.IS_HIDDEN, fileInfo.isHidden);
+            values.put(LocalDataColumns.COUNT, fileInfo.count);
+            values.put(LocalDataColumns.SELECTED, fileInfo.selected);
+            values.put(LocalDataColumns.CAN_READ, fileInfo.canRead);
+            values.put(LocalDataColumns.CAN_WRITE, fileInfo.canWrite);
+            values.put(LocalDataColumns.FILE_TYPE, fileInfo.fileType);
+            values.put(LocalDataColumns.TIME_PLAYED, System.currentTimeMillis());
+            database.insert(TABLE_NAME, null, values);
 
+            // if our db is too large, delete the extra items
+            Cursor oldest = null;
+            try {
+                oldest = database.query(TABLE_NAME,
+                        new String[]{LocalDataColumns.TIME_PLAYED}, null, null, null, null,
+                        LocalDataColumns.TIME_PLAYED + " ASC");
 
+                if (oldest != null && oldest.getCount() > MAX_ITEMS_IN_DB) {
+                    oldest.moveToPosition(oldest.getCount() - MAX_ITEMS_IN_DB);
+                    long timeOfRecordToKeep = oldest.getLong(0);
+
+                    database.delete(TABLE_NAME,
+                            LocalDataColumns.TIME_PLAYED + " < ?",
+                            new String[]{String.valueOf(timeOfRecordToKeep)});
+
+                }
+            } finally {
+                if (oldest != null) {
+                    oldest.close();
+                }
+            }
+        } finally {
+            database.setTransactionSuccessful();
+            database.endTransaction();
+        }
+    }
+
+    public void removeFileInfo(final String fileName) {
+        final SQLiteDatabase database = getWritableDatabase();
+        database.delete(TABLE_NAME, LocalDataColumns.FILE_NAME + " = ?", new String[]{
+                fileName
+        });
+
+    }
+
+    public void clear() {
+        final SQLiteDatabase database = getWritableDatabase();
+        database.delete(TABLE_NAME, null, null);
+    }
+
+    public boolean contains(String fileName) {
+        final SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.query(TABLE_NAME,
+                new String[]{LocalDataColumns.FILE_NAME},
+                LocalDataColumns.FILE_NAME + "=?",
+                new String[]{fileName},
+                null, null, null, null);
+
+        boolean containsId = cursor != null && cursor.moveToFirst();
+        if (cursor != null) {
+            cursor.close();
+        }
+        return containsId;
+    }
+
+    public Cursor queryRecentIds() {
+        final SQLiteDatabase database = getReadableDatabase();
+        return database.query(TABLE_NAME,
+                new String[]{LocalDataColumns.TIME_PLAYED}, null, null, null, null,
+                LocalDataColumns.TIME_PLAYED + " DESC");
+    }
 
 
     public interface LocalDataColumns {
@@ -148,6 +243,10 @@ public class LocalDataStore extends SQLiteOpenHelper {
         String IS_HIDDEN = "is_hidden";
 
         String ID = "_id";
+
+        String TIME_PLAYED = "time_played";
+
+        String FILE_TYPE = "file_type";
 
     }
 

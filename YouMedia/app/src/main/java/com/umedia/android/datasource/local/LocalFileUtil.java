@@ -45,8 +45,8 @@ public class LocalFileUtil {
         fileInfo.isHidden = file.isHidden();
         fileInfo.fileName = file.getName();
 //        fileInfo.fileName = Util.getNameFromFilepath(filePath);
-        fileInfo.ModifiedDate = file.lastModified();
-        fileInfo.IsDir = file.isDirectory();
+        fileInfo.modifiedDate = file.lastModified();
+        fileInfo.isDir = file.isDirectory();
 //        fileInfo.filePath = filePath;
         fileInfo.filePath = file.getAbsolutePath();
         fileInfo.setFileType(FileInfo.getFileTypeFromPath(fileInfo.filePath));

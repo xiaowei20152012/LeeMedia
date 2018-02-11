@@ -28,13 +28,13 @@ public class FileInfo {
 
     public long fileSize;
 
-    public boolean IsDir;
+    public boolean isDir;
 
-    public int Count;
+    public int count;
 
-    public long ModifiedDate;
+    public long modifiedDate;
 
-    public boolean Selected;
+    public boolean selected;
 
     public boolean canRead;
 
@@ -44,7 +44,7 @@ public class FileInfo {
 
     public long dbId; // id in the database, if is from database
 
-    private int fileType = TYPE_ALL;
+    public int fileType = TYPE_ALL;
 
 
     public static int getFileTypeFromPath(String path) {

@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.afollestad.materialcab.MaterialCab;
 import com.kabouzeid.appthemehelper.ThemeStore;
@@ -99,20 +100,21 @@ public class FilesFragment extends AbsMainActivityFragment implements CabHolder,
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {
-        if (PreferenceUtil.LIBRARY_CATEGORIES.equals(key)) {
-            Fragment current = getCurrentFragment();
-            pagerAdapter.setCategoryInfos(PreferenceUtil.getInstance(getActivity()).getLibraryCategoryInfos());
-            pager.setOffscreenPageLimit(pagerAdapter.getCount() - 1);
-            int position = pagerAdapter.getItemPosition(current);
-            if (position < 0) {
-                position = 0;
-            }
-            pager.setCurrentItem(position);
-            PreferenceUtil.getInstance(getContext()).setLastPage(position);
-
-            // hide the tab bar with single tab
-            tabs.setVisibility(pagerAdapter.getCount() == 1 ? View.GONE : View.VISIBLE);
-        }
+        Toast.makeText(getActivity(),"onSharepreferenceChanged",Toast.LENGTH_SHORT).show();
+//        if (PreferenceUtil.LIBRARY_CATEGORIES.equals(key)) {
+//            Fragment current = getCurrentFragment();
+//            pagerAdapter.setCategoryInfos(PreferenceUtil.getInstance(getActivity()).getLibraryCategoryInfos());
+//            pager.setOffscreenPageLimit(pagerAdapter.getCount() - 1);
+//            int position = pagerAdapter.getItemPosition(current);
+//            if (position < 0) {
+//                position = 0;
+//            }
+//            pager.setCurrentItem(position);
+//            PreferenceUtil.getInstance(getContext()).setLastPage(position);
+//
+//            // hide the tab bar with single tab
+//            tabs.setVisibility(pagerAdapter.getCount() == 1 ? View.GONE : View.VISIBLE);
+//        }
     }
 
     private void setUpToolbar() {
@@ -186,22 +188,22 @@ public class FilesFragment extends AbsMainActivityFragment implements CabHolder,
         if (isPlaylistPage()) {
             menu.add(0, R.id.action_new_playlist, 0, R.string.new_playlist_title);
         }
-        Fragment currentFragment = getCurrentFragment();
-        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment && currentFragment.isAdded()) {
-            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
-
-            MenuItem gridSizeItem = menu.findItem(R.id.action_grid_size);
-            if (Util.isLandscape(getResources())) {
-                gridSizeItem.setTitle(R.string.action_grid_size_land);
-            }
-            setUpGridSizeMenu(absLibraryRecyclerViewCustomGridSizeFragment, gridSizeItem.getSubMenu());
-
-            menu.findItem(R.id.action_colored_footers).setChecked(absLibraryRecyclerViewCustomGridSizeFragment.usePalette());
-            menu.findItem(R.id.action_colored_footers).setEnabled(absLibraryRecyclerViewCustomGridSizeFragment.canUsePalette());
-        } else {
-            menu.removeItem(R.id.action_grid_size);
-            menu.removeItem(R.id.action_colored_footers);
-        }
+//        Fragment currentFragment = getCurrentFragment();
+//        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment && currentFragment.isAdded()) {
+//            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
+//
+//            MenuItem gridSizeItem = menu.findItem(R.id.action_grid_size);
+//            if (Util.isLandscape(getResources())) {
+//                gridSizeItem.setTitle(R.string.action_grid_size_land);
+//            }
+//            setUpGridSizeMenu(absLibraryRecyclerViewCustomGridSizeFragment, gridSizeItem.getSubMenu());
+//
+//            menu.findItem(R.id.action_colored_footers).setChecked(absLibraryRecyclerViewCustomGridSizeFragment.usePalette());
+//            menu.findItem(R.id.action_colored_footers).setEnabled(absLibraryRecyclerViewCustomGridSizeFragment.canUsePalette());
+//        } else {
+//            menu.removeItem(R.id.action_grid_size);
+//            menu.removeItem(R.id.action_colored_footers);
+//        }
         Activity activity = getActivity();
         if (activity == null) return;
         ToolbarContentTintHelper.handleOnCreateOptionsMenu(getActivity(), toolbar, menu, ATHToolbarActivity.getToolbarBackgroundColor(toolbar));
@@ -220,32 +222,32 @@ public class FilesFragment extends AbsMainActivityFragment implements CabHolder,
         if (pager == null) {
             return false;
         }
-        Fragment currentFragment = getCurrentFragment();
-        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment) {
-            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
-            if (item.getItemId() == R.id.action_colored_footers) {
-                item.setChecked(!item.isChecked());
-                absLibraryRecyclerViewCustomGridSizeFragment.setAndSaveUsePalette(item.isChecked());
-                return true;
-            }
-            if (handleGridSizeMenuItem(absLibraryRecyclerViewCustomGridSizeFragment, item)) {
-                return true;
-            }
-        }
-
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.action_shuffle_all:
-                MusicPlayerRemote.openAndShuffleQueue(SongLoader.getAllSongs(getActivity()), true);
-                return true;
-            case R.id.action_new_playlist:
-                CreatePlaylistDialog.create().show(getChildFragmentManager(), "CREATE_PLAYLIST");
-                return true;
-            case R.id.action_search:
-                startActivity(new Intent(getActivity(), SearchActivity.class));
-                return true;
-            default:
-        }
+//        Fragment currentFragment = getCurrentFragment();
+//        if (currentFragment instanceof AbsLibraryPagerRecyclerViewCustomGridSizeFragment) {
+//            AbsLibraryPagerRecyclerViewCustomGridSizeFragment absLibraryRecyclerViewCustomGridSizeFragment = (AbsLibraryPagerRecyclerViewCustomGridSizeFragment) currentFragment;
+//            if (item.getItemId() == R.id.action_colored_footers) {
+//                item.setChecked(!item.isChecked());
+//                absLibraryRecyclerViewCustomGridSizeFragment.setAndSaveUsePalette(item.isChecked());
+//                return true;
+//            }
+//            if (handleGridSizeMenuItem(absLibraryRecyclerViewCustomGridSizeFragment, item)) {
+//                return true;
+//            }
+//        }
+//
+//        int id = item.getItemId();
+//        switch (id) {
+//            case R.id.action_shuffle_all:
+//                MusicPlayerRemote.openAndShuffleQueue(SongLoader.getAllSongs(getActivity()), true);
+//                return true;
+//            case R.id.action_new_playlist:
+//                CreatePlaylistDialog.create().show(getChildFragmentManager(), "CREATE_PLAYLIST");
+//                return true;
+//            case R.id.action_search:
+//                startActivity(new Intent(getActivity(), SearchActivity.class));
+//                return true;
+//            default:
+//        }
         return super.onOptionsItemSelected(item);
     }
 
