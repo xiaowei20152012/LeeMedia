@@ -5,6 +5,9 @@ import com.umedia.android.util.MediaFile;
 import com.umedia.android.util.MimeUtils;
 
 public class FileInfo {
+    /*0 false 1 true*/
+    private static final int TRUE = 1;
+    private static final int FALSE = 0;
 
     public static final int TYPE_ALL = 0;
     public static final int TYPE_MUSIC = 1;
@@ -22,29 +25,31 @@ public class FileInfo {
             "zip", "rar"
     };
 
-    public String fileName;
+    private String fileName;
 
-    public String filePath;
+    private String filePath;
 
-    public long fileSize;
+    private long fileSize;
 
-    public boolean isDir;
+    private int isDir;
 
-    public int count;
+    private int count;
 
-    public long modifiedDate;
+    private long modifiedDate;
 
-    public boolean selected;
+    private int selected;
 
-    public boolean canRead;
+    private int canRead;
 
-    public boolean canWrite;
+    private int canWrite;
 
-    public boolean isHidden;
+    private int isHidden;
 
-    public long dbId; // id in the database, if is from database
+    private int dbId; // id in the database, if is from database
 
-    public int fileType = TYPE_ALL;
+    private int fileType = TYPE_ALL;
+
+    private long timePlayed;
 
 
     public static int getFileTypeFromPath(String path) {
@@ -135,5 +140,144 @@ public class FileInfo {
     public boolean isTheme() {
         return fileSize == TYPE_THEME;
     }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public long getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public boolean isDir() {
+        return isDir == TRUE;
+    }
+
+    public int getDir() {
+        return isDir;
+    }
+
+    public void setDir(boolean dir) {
+        isDir = dir ? TRUE : FALSE;
+    }
+
+    public void setDir(int dir) {
+        isDir = dir;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public long getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(long modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public boolean isSelected() {
+        return selected == TRUE;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected ? TRUE : FALSE;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
+    }
+
+    public boolean isCanRead() {
+        return canRead == TRUE;
+    }
+
+    public int getCanRead() {
+        return canRead;
+    }
+
+    public void setCanRead(boolean canRead) {
+        this.canRead = canRead ? TRUE : FALSE;
+    }
+
+    public void setCanRead(int canRead) {
+        this.canRead = canRead;
+    }
+
+    public boolean isCanWrite() {
+        return canWrite == TRUE;
+    }
+
+    public int getCanWrite() {
+        return canWrite;
+    }
+
+    public void setCanWrite(boolean canWrite) {
+        this.canWrite = canWrite ? TRUE : FALSE;
+    }
+
+    public void setCanWrite(int canWrite) {
+        this.canWrite = canWrite;
+    }
+
+    public boolean isHidden() {
+        return isHidden == TRUE;
+    }
+
+    public int getHidden() {
+        return isHidden;
+    }
+
+    public void setHidden(boolean hidden) {
+        isHidden = hidden ? TRUE : FALSE;
+    }
+
+    public void setHidden(int hidden) {
+        isHidden = hidden;
+    }
+
+    public int getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(int dbId) {
+        this.dbId = dbId;
+    }
+
+    public long getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(long timePlayed) {
+        this.timePlayed = timePlayed;
+    }
+
+    //*******************end******************
+
 
 }

@@ -40,17 +40,17 @@ public class LocalFileUtil {
         }
 
         FileInfo fileInfo = new FileInfo();
-        fileInfo.canRead = file.canRead();
-        fileInfo.canWrite = file.canWrite();
-        fileInfo.isHidden = file.isHidden();
-        fileInfo.fileName = file.getName();
+        fileInfo.setCanRead(file.canRead());
+        fileInfo.setCanWrite(file.canWrite());
+        fileInfo.setHidden(file.isHidden());
+        fileInfo.setFileName(file.getName());
 //        fileInfo.fileName = Util.getNameFromFilepath(filePath);
-        fileInfo.modifiedDate = file.lastModified();
-        fileInfo.isDir = file.isDirectory();
+        fileInfo.setModifiedDate(file.lastModified());
+        fileInfo.setDir(file.isDirectory());
 //        fileInfo.filePath = filePath;
-        fileInfo.filePath = file.getAbsolutePath();
-        fileInfo.setFileType(FileInfo.getFileTypeFromPath(fileInfo.filePath));
-        fileInfo.fileSize = file.length();
+        fileInfo.setFilePath(file.getAbsolutePath());
+        fileInfo.setFileType(FileInfo.getFileTypeFromPath(fileInfo.getFilePath()));
+        fileInfo.setFileSize(file.length());
         return fileInfo;
     }
 
@@ -120,11 +120,12 @@ public class LocalFileUtil {
     /**
      * path should not too deep
      * /storage/emulated/0/cache/SystemUpdater/LogCache/1.17.8/style/sy
+     *
      * @param path
      * @return
      */
     private static boolean isNotDeep(String path) {
-        return getPathDeep(path) <= 6;
+        return getPathDeep(path) <= 5;
     }
 
     private static int getPathDeep(String path) {

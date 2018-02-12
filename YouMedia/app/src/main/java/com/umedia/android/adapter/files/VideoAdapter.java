@@ -66,7 +66,7 @@ public class VideoAdapter  extends AbsMultiSelectAdapter<VideoAdapter.ViewHolder
 
     @Override
     public long getItemId(int position) {
-        return dataSet.get(position).dbId;
+        return dataSet.get(position).getDbId();
     }
 
     @NonNull
@@ -144,11 +144,11 @@ public class VideoAdapter  extends AbsMultiSelectAdapter<VideoAdapter.ViewHolder
     }
 
     protected String getSongTitle(FileInfo song) {
-        return song.fileName;
+        return song.getFileName();
     }
 
     protected String getSongText(FileInfo song) {
-        return song.fileName;
+        return song.getFileName();
     }
 
     @Override
@@ -163,7 +163,7 @@ public class VideoAdapter  extends AbsMultiSelectAdapter<VideoAdapter.ViewHolder
 
     @Override
     protected String getName(FileInfo song) {
-        return song.fileName;
+        return song.getFileName();
     }
 
     @Override
@@ -174,7 +174,7 @@ public class VideoAdapter  extends AbsMultiSelectAdapter<VideoAdapter.ViewHolder
     @NonNull
     @Override
     public String getSectionName(int position) {
-        return showSectionName ? MusicUtil.getSectionName(dataSet.get(position).fileName) : "";
+        return showSectionName ? MusicUtil.getSectionName(dataSet.get(position).getFileName()) : "";
     }
 
     public class ViewHolder extends MediaEntryViewHolder {

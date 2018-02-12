@@ -116,7 +116,7 @@ public class AboutActivity extends AbsBaseActivity implements View.OnClickListen
         setTaskDescriptionColorAuto();
 
         setUpViews();
-//        LocalFileDataSource.getInstance().preLoad(this);
+        LocalFileDataSource.getInstance().preLoad(this);
     }
 
     private void setUpViews() {

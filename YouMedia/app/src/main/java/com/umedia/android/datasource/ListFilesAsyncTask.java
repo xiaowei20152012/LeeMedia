@@ -6,7 +6,10 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 
 import com.umedia.android.datasource.local.LocalDataInfo;
+import com.umedia.android.datasource.local.LocalFileDataSource;
 import com.umedia.android.datasource.local.LocalFileUtil;
+import com.umedia.android.model.FileInfo;
+import com.umedia.android.provider.LocalDataStore;
 import com.umedia.android.util.FileUtil;
 import com.umedia.android.util.PreferenceUtil;
 
@@ -15,14 +18,17 @@ import java.io.FileFilter;
 import java.util.List;
 
 public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsyncTask.LoadingInfo, String, LocalDataInfo> {
-//    private WeakReference<OnPathsListedCallback> onPathsListedCallbackWeakReference;
+    //    private WeakReference<OnPathsListedCallback> onPathsListedCallbackWeakReference;
+    private Context context;
 
     public ListFilesAsyncTask(Context context, OnPathsListedCallback callback) {
         super(context);
 //        onPathsListedCallbackWeakReference = new WeakReference<>(callback);
     }
+
     public ListFilesAsyncTask(Context context) {
         super(context);
+        this.context = context;
     }
 
     @Override
@@ -43,11 +49,11 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
             }
 
             LoadingInfo info = null;
-            if (info==null){
+            if (info == null) {
                 FileFilter fileFilter = file -> !file.isHidden() && (file.isDirectory() ||
                         LocalFileUtil.fileIsMimeType(file));
                 String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                info = new LoadingInfo(new File(sdcardPath),fileFilter);
+                info = new LoadingInfo(new File(sdcardPath), fileFilter);
             }
 
 //            final String[] paths;
@@ -60,6 +66,8 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
                     return null;
                 }
                 localDataInfo = LocalFileUtil.traverseFiles(files);
+                LocalDataStore.getInstance(context).addFileInfos(localDataInfo.getTotalInfos());
+                LocalDataStore.getInstance(context).queryAllFileInfo();
 //                paths = new String[files.size()];
 //                for (int i = 0; i < files.size(); i++) {
 //                    File f = files.get(i);
@@ -99,8 +107,6 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
 //        }
 //        return callback;
 //    }
-
-
 
 
     public static class LoadingInfo {

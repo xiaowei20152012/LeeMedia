@@ -46,6 +46,19 @@ public class LocalDataInfo {
         otherInfos.add(fileInfo);
     }
 
+    public void setDataInfo(FileInfo fileInfo) {
+        totalInfos.add(fileInfo);
+        if (fileInfo.isPicture()) {
+            imageInfos.add(fileInfo);
+        } else if (fileInfo.isVideo()) {
+            videoInfos.add(fileInfo);
+        } else if (fileInfo.isMusic()) {
+            audioInfos.add(fileInfo);
+        } else {
+            otherInfos.add(fileInfo);
+        }
+    }
+
     public ArrayList<FileInfo> getTotalInfos() {
         return totalInfos;
     }
