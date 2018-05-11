@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.umedia.ad.R;
 import com.umedia.ad.base.BaseFragment;
 import com.umedia.ad.provider.main.MainMusicModel;
+import com.umedia.ad.util.JsonRequest;
 
 public class SongsFragment extends BaseFragment implements MainMusicModel.Listener {
     private View rootView;
@@ -29,6 +31,11 @@ public class SongsFragment extends BaseFragment implements MainMusicModel.Listen
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         model = MainMusicModel.create(this);
+        JsonRequest.HistoryRequest historyRequest = new JsonRequest.HistoryRequest("id","type",5);
+        JsonRequest.RequestInfo info = JsonRequest.RequestInfo.create();
+        info.add(historyRequest);
+        System.out.println(info.toString());
+        Log.e("tag",info.toString());
     }
 
     @Nullable

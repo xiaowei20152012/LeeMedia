@@ -4,6 +4,8 @@ package com.umedia.ad;
 import android.annotation.SuppressLint;
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
+
 public class App extends Application {
     private boolean init = false;
     @SuppressLint("StaticFieldLeak")
@@ -20,6 +22,12 @@ public class App extends Application {
 
     private void init() {
         context = this;
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     @Override

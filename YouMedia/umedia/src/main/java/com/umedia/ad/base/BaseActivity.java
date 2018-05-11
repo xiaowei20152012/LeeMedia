@@ -80,7 +80,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Nullable
     protected String[] getPermissionsToRequest() {
-        return null;
+        return new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     }
 
     protected View getSnackBarContainer() {

@@ -24,4 +24,12 @@ public class MainActivity extends BaseActivity {
                 replace(R.id.fragment_container, songFragment).
                 commitAllowingStateLoss();
     }
+
+    @Override
+    protected void onHasPermissionsChanged(boolean hasPermissions) {
+        if (hasPermissions){
+            songFragment = SongsFragment.instance();
+            replaceFragment();
+        }
+    }
 }

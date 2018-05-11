@@ -49,15 +49,19 @@ public class AsyncLoader {
                 try {
                     result = listener.doInbackground();
                 } catch (Exception ignore) {
-                        listener.loadError(ignore.getMessage());
                 }
             }
-            if (listener != null) {
-                listener.loaded(result);
-            }
-            return null;
+
+            return result;
         }
 
-
+        @Override
+        protected void onPostExecute(Object result) {
+            if (listener != null) {
+                listener.loaded(result);
+            } else {
+                listener.loadError("error");
+            }
+        }
     }
 }

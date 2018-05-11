@@ -5,6 +5,7 @@ public class myClass {
         String a = "/storage/emulated/0/cache/SystemUpdater/LogCache/1.17.8/style/sy";
         System.out.print(getPathDeep(a));
 
+
     }
 
     private static int getPathDeep(String path) {
