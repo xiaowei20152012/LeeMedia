@@ -11,18 +11,17 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.umedia.ad.service.playback.IMusicPlayer;
 
 /**
- * @author Andrew Neal
+ * @author Andrew Neal, Lee (kabouzeid)
  */
 public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
     public static final String TAG = MultiPlayer.class.getSimpleName();
 
-    private MediaPlayer currentMediaPlayer = new MediaPlayer();
-    private MediaPlayer nextMediaPlayer;
+    private MediaPlayer mCurrentMediaPlayer = new MediaPlayer();
+    private MediaPlayer mNextMediaPlayer;
 
     private Context context;
     @Nullable
@@ -35,7 +34,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
      */
     public MultiPlayer(final Context context) {
         this.context = context;
-        currentMediaPlayer.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
+        mCurrentMediaPlayer.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
     }
 
     /**
@@ -47,7 +46,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean setDataSource(@NonNull final String path) {
         mIsInitialized = false;
-        mIsInitialized = setDataSourceImpl(currentMediaPlayer, path);
+        mIsInitialized = setDataSourceImpl(mCurrentMediaPlayer, path);
         if (mIsInitialized) {
             setNextDataSource(null);
         }
@@ -101,16 +100,16 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
             return;
         }
         try {
-            currentMediaPlayer.setNextMediaPlayer(null);
+            mCurrentMediaPlayer.setNextMediaPlayer(null);
         } catch (IllegalArgumentException e) {
             Log.i(TAG, "Next media player is current one, continuing");
         } catch (IllegalStateException e) {
             Log.e(TAG, "Media player not initialized!");
             return;
         }
-        if (nextMediaPlayer != null) {
-            nextMediaPlayer.release();
-            nextMediaPlayer = null;
+        if (mNextMediaPlayer != null) {
+            mNextMediaPlayer.release();
+            mNextMediaPlayer = null;
         }
         if (path == null) {
             return;
@@ -162,7 +161,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean start() {
         try {
-            currentMediaPlayer.start();
+            mCurrentMediaPlayer.start();
             return true;
         } catch (IllegalStateException e) {
             return false;
@@ -174,7 +173,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
      */
     @Override
     public void stop() {
-        currentMediaPlayer.reset();
+        mCurrentMediaPlayer.reset();
         mIsInitialized = false;
     }
 
@@ -184,9 +183,9 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public void release() {
         stop();
-        currentMediaPlayer.release();
-        if (nextMediaPlayer != null) {
-            nextMediaPlayer.release();
+        mCurrentMediaPlayer.release();
+        if (mNextMediaPlayer != null) {
+            mNextMediaPlayer.release();
         }
     }
 
@@ -196,7 +195,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean pause() {
         try {
-            currentMediaPlayer.pause();
+            mCurrentMediaPlayer.pause();
             return true;
         } catch (IllegalStateException e) {
             return false;
@@ -208,7 +207,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
      */
     @Override
     public boolean isPlaying() {
-        return mIsInitialized && currentMediaPlayer.isPlaying();
+        return mIsInitialized && mCurrentMediaPlayer.isPlaying();
     }
 
     /**
@@ -222,7 +221,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
             return -1;
         }
         try {
-            return currentMediaPlayer.getDuration();
+            return mCurrentMediaPlayer.getDuration();
         } catch (IllegalStateException e) {
             return -1;
         }
@@ -239,7 +238,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
             return -1;
         }
         try {
-            return currentMediaPlayer.getCurrentPosition();
+            return mCurrentMediaPlayer.getCurrentPosition();
         } catch (IllegalStateException e) {
             return -1;
         }
@@ -254,7 +253,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public int seek(final int whereto) {
         try {
-            currentMediaPlayer.seekTo(whereto);
+            mCurrentMediaPlayer.seekTo(whereto);
             return whereto;
         } catch (IllegalStateException e) {
             return -1;
@@ -264,7 +263,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean setVolume(final float vol) {
         try {
-            currentMediaPlayer.setVolume(vol, vol);
+            mCurrentMediaPlayer.setVolume(vol, vol);
             return true;
         } catch (IllegalStateException e) {
             return false;
@@ -279,7 +278,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean setAudioSessionId(final int sessionId) {
         try {
-            currentMediaPlayer.setAudioSessionId(sessionId);
+            mCurrentMediaPlayer.setAudioSessionId(sessionId);
             return true;
         } catch (@NonNull IllegalArgumentException | IllegalStateException e) {
             return false;
@@ -293,7 +292,7 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
      */
     @Override
     public int getAudioSessionId() {
-        return currentMediaPlayer.getAudioSessionId();
+        return mCurrentMediaPlayer.getAudioSessionId();
     }
 
     /**
@@ -302,9 +301,9 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
     @Override
     public boolean onError(final MediaPlayer mp, final int what, final int extra) {
         mIsInitialized = false;
-        currentMediaPlayer.release();
-        currentMediaPlayer = new MediaPlayer();
-        currentMediaPlayer.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
+        mCurrentMediaPlayer.release();
+        mCurrentMediaPlayer = new MediaPlayer();
+        mCurrentMediaPlayer.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
         if (context != null) {
 //            Toast.makeText(context, context.getResources().getString(R.string.unplayable_file), Toast.LENGTH_SHORT).show();
         }
@@ -316,12 +315,12 @@ public class MultiPlayer implements IMusicPlayer, MediaPlayer.OnErrorListener, M
      */
     @Override
     public void onCompletion(final MediaPlayer mp) {
-        if (mp == currentMediaPlayer && nextMediaPlayer != null) {
+        if (mp == mCurrentMediaPlayer && mNextMediaPlayer != null) {
             mIsInitialized = false;
-            currentMediaPlayer.release();
-            currentMediaPlayer = nextMediaPlayer;
+            mCurrentMediaPlayer.release();
+            mCurrentMediaPlayer = mNextMediaPlayer;
             mIsInitialized = true;
-            nextMediaPlayer = null;
+            mNextMediaPlayer = null;
             if (callbacks != null)
                 callbacks.onTrackWentToNext();
         } else {
