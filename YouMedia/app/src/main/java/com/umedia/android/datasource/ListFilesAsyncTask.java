@@ -2,7 +2,10 @@ package com.umedia.android.datasource;
 
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 
 import com.umedia.android.datasource.local.LocalDataInfo;
@@ -15,37 +18,52 @@ import com.umedia.android.util.PreferenceUtil;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
-public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsyncTask.LoadingInfo, String, LocalDataInfo> {
-    //    private WeakReference<OnPathsListedCallback> onPathsListedCallbackWeakReference;
-    private Context context;
+public class ListFilesAsyncTask extends AsyncTask<ListFilesAsyncTask.LoadingInfo, String, LocalDataInfo> {
+    private WeakReference<OnDataCallback> onDataListedCallbackWeakReference;
+    private WeakReference<Context> contextWeakReference;
+    private Handler handler;
+    private LocalDataInfo localDataInfo;
 
-    public ListFilesAsyncTask(Context context, OnPathsListedCallback callback) {
-        super(context);
-//        onPathsListedCallbackWeakReference = new WeakReference<>(callback);
+    public ListFilesAsyncTask(Context context, OnDataCallback callback) {
+//        super(context);
+        this.contextWeakReference = new WeakReference<Context>(context);
+        onDataListedCallbackWeakReference = new WeakReference<>(callback);
+        handler = new Handler(Looper.getMainLooper());
     }
 
-    public ListFilesAsyncTask(Context context) {
-        super(context);
-        this.context = context;
+    public void onRelease() {
+        cancel(false);
+        handler = null;
+        localDataInfo = null;
+        onDataListedCallbackWeakReference = null;
     }
+
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-//        checkCallbackReference();
+        checkCallbackReference();
     }
 
     @Override
     protected LocalDataInfo doInBackground(LoadingInfo... params) {
-        LocalDataInfo localDataInfo = null;
         try {
-//            if (isCancelled() || checkCallbackReference() == null) {
-//                return null;
-//            }
-            if (isCancelled()) {
+            if (checkContextReference() == null || handler == null || isCancelled() || checkCallbackReference() == null) {
                 return null;
+            }
+            localDataInfo = LocalDataStore.getInstance(checkContextReference()).queryAllFileInfo();
+            if (handler != null && checkCallbackReference() != null && localDataInfo != null) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (checkCallbackReference()!=null) {
+                            checkCallbackReference().onPreLoaded(localDataInfo);
+                        }
+                    }
+                });
             }
 
             LoadingInfo info = null;
@@ -56,9 +74,6 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
                 info = new LoadingInfo(new File(sdcardPath), fileFilter);
             }
 
-//            final String[] paths;
-
-
             if (info.file.isDirectory()) {
                 List<File> files = LocalFileUtil.listLinkedFiles(info.file, info.fileFilter);
 
@@ -66,47 +81,47 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
                     return null;
                 }
                 localDataInfo = LocalFileUtil.traverseFiles(files);
-                LocalDataStore.getInstance(context).addFileInfos(localDataInfo.getTotalInfos());
-                LocalDataStore.getInstance(context).queryAllFileInfo();
-//                paths = new String[files.size()];
-//                for (int i = 0; i < files.size(); i++) {
-//                    File f = files.get(i);
-//                    paths[i] = FileUtil.safeGetCanonicalPath(f);
-//
-//                    if (isCancelled()) {
-//                        return paths;
-//                    }
-//                }
+                LocalDataStore.getInstance(checkContextReference()).addFileInfos(localDataInfo.getTotalInfos());
 
-            } else {
-//                paths = new String[1];
-//                paths[0] = info.file.getPath();
             }
-
+            if (checkCallbackReference() != null) {
+                handler.post(() -> checkCallbackReference().onLoaded(localDataInfo));
+            }
             return localDataInfo;
         } catch (Exception e) {
             e.printStackTrace();
             cancel(false);
+            if (checkCallbackReference() != null) {
+                handler.post(() -> checkCallbackReference().onLoadingError(localDataInfo, null));
+            }
             return null;
         }
+    }
+
+    public static LocalDataInfo quaryAll(Context context) {
+        return LocalDataStore.getInstance(context).queryAllFileInfo();
     }
 
     @Override
     protected void onPostExecute(LocalDataInfo list) {
         super.onPostExecute(list);
-//        OnPathsListedCallback callback = checkCallbackReference();
-//        if (callback != null) {
-//            callback.onPathsListed(paths);
-//        }
     }
 
-//    private OnPathsListedCallback checkCallbackReference() {
-//        OnPathsListedCallback callback = onPathsListedCallbackWeakReference.get();
-//        if (callback == null) {
-//            cancel(false);
-//        }
-//        return callback;
-//    }
+    private OnDataCallback checkCallbackReference() {
+        OnDataCallback callback = onDataListedCallbackWeakReference.get();
+        if (callback == null) {
+            cancel(false);
+        }
+        return callback;
+    }
+
+    private Context checkContextReference() {
+        Context context = contextWeakReference.get();
+        if (context == null) {
+            cancel(false);
+        }
+        return context;
+    }
 
 
     public static class LoadingInfo {
@@ -119,8 +134,15 @@ public class ListFilesAsyncTask extends ListingFilesDialogAsyncTask<ListFilesAsy
         }
     }
 
-    public interface OnPathsListedCallback {
-        void onPathsListed(@Nullable String[] paths);
-    }
+    public interface OnDataCallback {
 
+        void onPreLoaded(LocalDataInfo dataInfo);
+
+        void onLoaded(@Nullable LocalDataInfo dataInfo);
+
+        void onLoadingError(@Nullable LocalDataInfo dataInfo, Throwable error);
+
+        void onDataChanged(@Nullable LocalDataInfo dataInfo);
+
+    }
 }

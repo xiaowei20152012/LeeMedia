@@ -30,6 +30,7 @@ import com.kabouzeid.appthemehelper.util.NavigationViewUtil;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.umedia.android.App;
 import com.umedia.android.R;
+import com.umedia.android.datasource.local.LocalFileDataSource;
 import com.umedia.android.dialogs.ChangelogDialog;
 import com.umedia.android.glide.SongGlideRequest;
 import com.umedia.android.helper.MusicPlayerRemote;
@@ -41,7 +42,7 @@ import com.umedia.android.model.Song;
 import com.umedia.android.service.MusicService;
 import com.umedia.android.ui.activities.base.AbsSlidingMusicPanelActivity;
 import com.umedia.android.ui.activities.intro.AppIntroActivity;
-import com.umedia.android.ui.fragments.mainactivity.files.FilesFragment;
+//import com.umedia.android.ui.fragments.mainactivity.files.FilesFragment;
 import com.umedia.android.ui.fragments.mainactivity.folders.FoldersFragment;
 import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
 import com.umedia.android.util.DeviceUtil;
@@ -81,6 +82,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        LocalFileDataSource.getInstance().loadData(this);
         final Fabric fabric = new Fabric.Builder(this)
                 .kits(new Crashlytics())
                 .debuggable(true)           // Enables Crashlytics debugger
@@ -133,10 +135,10 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
                 navigationView.setCheckedItem(R.id.nav_folders);
                 setCurrentFragment(FoldersFragment.newInstance(this));
                 break;
-            case VIDEO:
-                navigationView.setCheckedItem(R.id.nav_files);
-                setCurrentFragment(FilesFragment.newInstance());
-                break;
+//            case VIDEO:
+//                navigationView.setCheckedItem(R.id.nav_files);
+//                setCurrentFragment(FilesFragment.newInstance());
+//                break;
             default:
         }
     }
@@ -168,7 +170,9 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
 
     @Override
     protected void requestPermissions() {
-        if (!blockRequestPermissions) super.requestPermissions();
+        if (!blockRequestPermissions) {
+            super.requestPermissions();
+        }
     }
 
     @Override
@@ -195,9 +199,9 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
                 case R.id.nav_folders:
                     new Handler().postDelayed(() -> setMusicChooser(FOLDERS), 200);
                     break;
-                case R.id.nav_files:
-                    new Handler().postDelayed(() -> setMusicChooser(VIDEO),200);
-                    break;
+//                case R.id.nav_files:
+//                    new Handler().postDelayed(() -> setMusicChooser(VIDEO),200);
+//                    break;
                 case R.id.buy_pro:
                     new Handler().postDelayed(() -> startActivityForResult(new Intent(MainActivity.this, PurchaseActivity.class), PURCHASE_REQUEST), 200);
                     break;

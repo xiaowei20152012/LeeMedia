@@ -10,6 +10,9 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.umedia.android.model.CategoryInfo;
+import com.umedia.android.ui.fragments.mainactivity.files.FileImageFragment;
+import com.umedia.android.ui.fragments.mainactivity.files.FileMusicFragment;
+import com.umedia.android.ui.fragments.mainactivity.files.FileOtherFragment;
 import com.umedia.android.ui.fragments.mainactivity.files.FileVideoFragment;
 import com.umedia.android.util.PreferenceUtil;
 
@@ -144,9 +147,9 @@ public class FilesPagerAdapter extends FragmentPagerAdapter {
 
     public enum FileEnumFragments {
         VIDEO(FileVideoFragment.class),
-        MUSIC(FileVideoFragment.class),
-        PICTURE(FileVideoFragment.class),
-        OTHER(FileVideoFragment.class);
+        MUSIC(FileMusicFragment.class),
+        PICTURE(FileImageFragment.class),
+        OTHER(FileOtherFragment.class);
 
         private final Class<? extends Fragment> mFragmentClass;
 
@@ -173,7 +176,7 @@ public class FilesPagerAdapter extends FragmentPagerAdapter {
             public static final FileEnumFragments[] FRAGMENTS = values();
         }
     }
-    
+
 
     private final static class Holder {
         String mClassName;

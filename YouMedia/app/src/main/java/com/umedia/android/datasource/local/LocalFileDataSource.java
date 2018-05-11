@@ -1,6 +1,7 @@
 package com.umedia.android.datasource.local;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 
 import com.umedia.android.datasource.ListFilesAsyncTask;
 import com.umedia.android.model.FileInfo;
@@ -17,18 +18,13 @@ import java.util.List;
 public class LocalFileDataSource {
 
     private static LocalFileDataSource instance;
-    private LinkedList<WeakReference<OnCallbackListener>> weakListeners;
-    private ArrayList<FileInfo> videoInfos;
-    private ArrayList<FileInfo> audioInfos;
-    private ArrayList<FileInfo> imageInfos;
-    private ArrayList<FileInfo> normalInfos;
+    private ListFilesAsyncTask asyncTask;
+    private LinkedList<WeakReference<OnViewCallback>> weakListeners;
+    private LocalDataInfo localDataInfo;
 
     private LocalFileDataSource() {
         weakListeners = new LinkedList<>();
-        videoInfos = new ArrayList<>(1);
-        audioInfos = new ArrayList<>(1);
-        imageInfos = new ArrayList<>(1);
-        normalInfos = new ArrayList<>(1);
+        localDataInfo = new LocalDataInfo();
     }
 
     public static synchronized LocalFileDataSource getInstance() {
@@ -38,64 +34,121 @@ public class LocalFileDataSource {
         return instance;
     }
 
-    public void registerListener(OnCallbackListener listener) {
+    public void registerListener(OnViewCallback listener) {
         weakListeners.add(new WeakReference<>(listener));
     }
 
-    public void unregisterListener(OnCallbackListener listener) {
-//        listeners.remove(listener);
-
-        Iterator<WeakReference<OnCallbackListener>> iterator = weakListeners.iterator();
+    public void unregisterListener(OnViewCallback listener) {
+        Iterator<WeakReference<OnViewCallback>> iterator = weakListeners.iterator();
         while (iterator.hasNext()) {
-            WeakReference<OnCallbackListener> next = iterator.next();
-            OnCallbackListener sourceListener = next.get();
+            WeakReference<OnViewCallback> next = iterator.next();
+            OnViewCallback sourceListener = next.get();
             if (sourceListener == null || sourceListener == listener) {
                 iterator.remove();
             }
         }
     }
-//         for (WeakReference<SourceListener> listener : weakListeners) {
-//        SourceListener sourceListener = listener.get();
-//        if (sourceListener != null)
-//            sourceListener.onLoading(DataSource.this);
-//    }
 
     public ArrayList<FileInfo> getVideoInfos() {
-        return videoInfos;
+        return localDataInfo.getVideoInfos();
     }
 
     public ArrayList<FileInfo> getAudioInfos() {
-        return videoInfos;
+        return localDataInfo.getAudioInfos();
     }
 
     public ArrayList<FileInfo> getImageInfos() {
-        return videoInfos;
+        return localDataInfo.getImageInfos();
     }
 
     public ArrayList<FileInfo> getNormalInfos() {
-        return videoInfos;
+        return localDataInfo.getTotalInfos();
     }
 
-    public void preLoad(Context context) {
-        new ListFilesAsyncTask(context).execute();
+    public ArrayList<FileInfo> getNormalInfos(Context context) {
+        return ListFilesAsyncTask.quaryAll(context).getTotalInfos();
     }
 
+    public ArrayList<FileInfo> getOtherInfos() {
+        return localDataInfo.getOtherInfos();
+    }
 
-    public interface OnCallbackListener {
+    /**
+     * 回调处理view
+     */
+    public interface OnViewCallback {
 
         void onPreLoaded();
 
-        void onLoaded(List<FileInfo> source);
+        void onLoaded();
 
-        void onLoadingError(List<FileInfo> source, Throwable error);
+        void onLoading();
 
-        void onDataChanged(List<FileInfo> source);
+        void onLoadingError(Throwable error, String msg);
+
+        void onDataChanged();
 
     }
 
+    public void loadData(Context context) {
+        asyncTask = new ListFilesAsyncTask(context, new ListFilesAsyncTask.OnDataCallback() {
+            @Override
+            public void onPreLoaded(LocalDataInfo dataInfo) {
+                localDataInfo = dataInfo;
+                onPreLoadView();
+            }
+
+            @Override
+            public void onLoaded(@Nullable LocalDataInfo dataInfo) {
+                localDataInfo = dataInfo;
+                onLoadedView();
+            }
+
+            @Override
+            public void onLoadingError(@Nullable LocalDataInfo dataInfo, Throwable error) {
+                localDataInfo = dataInfo;
+                onLoadErrorView();
+            }
+
+            @Override
+            public void onDataChanged(@Nullable LocalDataInfo dataInfo) {
+
+            }
+        });
+        asyncTask.execute();
+    }
 
     public void release() {
+        asyncTask.onRelease();
+    }
 
+    //************private method **********************
+
+    private void onPreLoadView() {
+        for (WeakReference<OnViewCallback> listener : weakListeners) {
+            OnViewCallback sourceListener = listener.get();
+            if (sourceListener != null) {
+                sourceListener.onPreLoaded();
+            }
+        }
+    }
+
+    private void onLoadedView() {
+        for (WeakReference<OnViewCallback> listener : weakListeners) {
+            OnViewCallback sourceListener = listener.get();
+            if (sourceListener != null) {
+                sourceListener.onLoaded();
+            }
+        }
+    }
+
+    private void onLoadErrorView() {
+        for (WeakReference<OnViewCallback> listener : weakListeners) {
+            OnViewCallback sourceListener = listener.get();
+            if (sourceListener != null) {
+                sourceListener.onLoadingError(null, null);
+            }
+        }
     }
 
 }

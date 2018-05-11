@@ -15,4 +15,8 @@ public interface LoaderIds {
     int PLAYLISTS_FRAGMENT = 9;
     int GENRES_FRAGMENT = 10;
     int SONGS_FRAGMENT = 11;
+    int FILE_VIDEO_FRAGMENT = 12;
+    int FILE_MUSIC_FRAGMENT = 13;
+    int FILE_IMAGE_FRAGMENT = 14;
+    int FILE_OTHER_FRAGMENT = 15;
 }

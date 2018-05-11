@@ -300,6 +300,7 @@ public class LocalDataStore extends SQLiteOpenHelper {
 
         return list;
     }
+
     public LocalDataInfo queryAllFileInfo() {
         LocalDataInfo localDataInfo = new LocalDataInfo();
         final SQLiteDatabase database = getReadableDatabase();
@@ -344,6 +345,9 @@ public class LocalDataStore extends SQLiteOpenHelper {
         } finally {
             if (cursor != null) {
                 cursor.close();
+            }
+            if (database != null && database.isOpen()) {//if need
+                database.close();
             }
         }
 

@@ -10,13 +10,10 @@ import android.support.v7.widget.GridLayoutManager;
 import com.umedia.android.R;
 import com.umedia.android.adapter.files.ShuffleButtonVideoAdapter;
 import com.umedia.android.adapter.files.VideoAdapter;
-import com.umedia.android.adapter.song.ShuffleButtonSongAdapter;
-import com.umedia.android.adapter.song.SongAdapter;
+import com.umedia.android.datasource.local.LocalFileDataSource;
 import com.umedia.android.interfaces.LoaderIds;
-import com.umedia.android.loader.SongLoader;
 import com.umedia.android.misc.WrappedAsyncTaskLoader;
 import com.umedia.android.model.FileInfo;
-import com.umedia.android.model.Song;
 import com.umedia.android.ui.fragments.mainactivity.files.pager.FilesPagerRecyclerViewCustomGridSizeFragment;
 import com.umedia.android.util.PreferenceUtil;
 
@@ -28,7 +25,7 @@ public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragm
 
     public static final String TAG = FileVideoFragment.class.getSimpleName();
 
-    private static final int LOADER_ID = LoaderIds.SONGS_FRAGMENT;
+    private static final int LOADER_ID = LoaderIds.FILE_VIDEO_FRAGMENT;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -119,7 +116,7 @@ public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragm
 
     @Override
     public Loader<ArrayList<FileInfo>> onCreateLoader(int id, Bundle args) {
-        return new AsyncSongLoader(getActivity());
+        return new AsyncFilesLoader(getActivity());
     }
 
     @Override
@@ -132,15 +129,17 @@ public class FileVideoFragment extends FilesPagerRecyclerViewCustomGridSizeFragm
         getAdapter().swapDataSet(new ArrayList<FileInfo>());
     }
 
-    private static class AsyncSongLoader extends WrappedAsyncTaskLoader<ArrayList<FileInfo>> {
-        public AsyncSongLoader(Context context) {
+    private static class AsyncFilesLoader extends WrappedAsyncTaskLoader<ArrayList<FileInfo>> {
+        public AsyncFilesLoader(Context context) {
             super(context);
         }
 
         @Override
         public ArrayList<FileInfo> loadInBackground() {
-            return new ArrayList<>();
-//            return SongLoader.getAllSongs(getContext());
+            if (null == LocalFileDataSource.getInstance().getVideoInfos()) {
+                return LocalFileDataSource.getInstance().getNormalInfos(getContext());
+            }
+            return LocalFileDataSource.getInstance().getVideoInfos();
         }
     }
 }
