@@ -30,6 +30,8 @@ allprojects {
         }
         maven {
             url ALIYUN_REPOSITORY_URL
+        }
+        maven {
             url ALIYUN_JCENTER_URL
         }
 

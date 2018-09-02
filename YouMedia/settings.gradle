@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':javalib', ':umedia'
+include ':app', ':commonlib', ':javalib'
