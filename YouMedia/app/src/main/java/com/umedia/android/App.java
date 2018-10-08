@@ -13,6 +13,7 @@ import com.squareup.leakcanary.LeakCanary;
 import com.umedia.android.appshortcuts.DynamicShortcutManager;
 
 import io.fabric.sdk.android.Fabric;
+import io.fabric.sdk.android.services.concurrency.AsyncTask;
 
 /**
  * APP Install
@@ -30,22 +31,27 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        app = this;
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
+        if (app == null) {
+            app = this;
+            if (LeakCanary.isInAnalyzerProcess(this)) {
+                // This process is dedicated to LeakCanary for heap analysis.
+                // You should not init your app in this process.
+                return;
+            }
+            LeakCanary.install(this);
+            // default theme
+            if (!ThemeStore.isConfigured(this, 1)) {
+                ThemeStore.editTheme(this)
+                        .activityTheme(R.style.Theme_Phonograph_Light)
+                        .primaryColorRes(R.color.md_indigo_500)
+                        .accentColorRes(R.color.md_pink_A400)
+                        .commit();
+            }
+            AsyncTask.execute(new ProgressInit());
         }
-        LeakCanary.install(this);
-        // default theme
-        if (!ThemeStore.isConfigured(this, 1)) {
-            ThemeStore.editTheme(this)
-                    .activityTheme(R.style.Theme_Phonograph_Light)
-                    .primaryColorRes(R.color.md_indigo_500)
-                    .accentColorRes(R.color.md_pink_A400)
-                    .commit();
-        }
+    }
 
+    private void progressInit() {
         // Set up Crashlytics, disabled for debug builds
         Crashlytics crashlyticsKit = new Crashlytics.Builder()
                 .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
@@ -94,5 +100,14 @@ public class App extends Application {
     public void onTerminate() {
         super.onTerminate();
         billingProcessor.release();
+    }
+
+
+    private class ProgressInit implements Runnable {
+
+        @Override
+        public void run() {
+            progressInit();
+        }
     }
 }

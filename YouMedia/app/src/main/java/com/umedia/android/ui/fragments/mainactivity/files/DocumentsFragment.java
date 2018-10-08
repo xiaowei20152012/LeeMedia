@@ -17,6 +17,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +34,7 @@ import com.kabouzeid.appthemehelper.common.ATHToolbarActivity;
 import com.kabouzeid.appthemehelper.util.ToolbarContentTintHelper;
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 import com.umedia.android.R;
-import com.umedia.android.adapter.SongFileAdapter;
+import com.umedia.android.adapter.DocumentsAdapter;
 import com.umedia.android.helper.MusicPlayerRemote;
 import com.umedia.android.helper.menu.SongMenuHelper;
 import com.umedia.android.helper.menu.SongsMenuHelper;
@@ -42,6 +43,7 @@ import com.umedia.android.interfaces.LoaderIds;
 import com.umedia.android.misc.DialogAsyncTask;
 import com.umedia.android.misc.UpdateToastMediaScannerCompletionListener;
 import com.umedia.android.misc.WrappedAsyncTaskLoader;
+import com.umedia.android.model.DocumentInfo;
 import com.umedia.android.model.Song;
 import com.umedia.android.ui.activities.MainActivity;
 import com.umedia.android.ui.fragments.mainactivity.AbsMainActivityFragment;
@@ -65,7 +67,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class DocumentsFragment extends AbsMainActivityFragment implements MainActivity.MainActivityFragmentCallbacks, CabHolder, BreadCrumbLayout.SelectionCallback, SongFileAdapter.Callbacks, AppBarLayout.OnOffsetChangedListener, LoaderManager.LoaderCallbacks<List<File>> {
+public class DocumentsFragment extends AbsMainActivityFragment implements MainActivity.MainActivityFragmentCallbacks, CabHolder, BreadCrumbLayout.SelectionCallback, DocumentsAdapter.Callbacks, AppBarLayout.OnOffsetChangedListener, LoaderManager.LoaderCallbacks<List<DocumentInfo>> {
     public static final String TAG = DocumentsFragment.class.getSimpleName();
 
     private static final int LOADER_ID = LoaderIds.FOLDERS_FRAGMENT;
@@ -90,14 +92,14 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     @BindView(R.id.recycler_view)
     FastScrollRecyclerView recyclerView;
 
-    private SongFileAdapter adapter;
+    private DocumentsAdapter adapter;
     private MaterialCab cab;
 
     public DocumentsFragment() {
     }
 
     public static DocumentsFragment newInstance(Context context) {
-        return newInstance(PreferenceUtil.getInstance(context).getStartDirectory());
+        return newInstance(PreferenceUtil.getInstance(context).getDocumentDirectory());
     }
 
     public static DocumentsFragment newInstance(File directory) {
@@ -109,7 +111,12 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     public void setCrumb(BreadCrumbLayout.Crumb crumb, boolean addToHistory) {
-        if (crumb == null) return;
+        if (crumb == null) {
+            return;
+        }
+        if (TextUtils.equals(crumb.getFile().getAbsolutePath(), Environment.getExternalStorageState())) {
+            breadCrumbs.clearHistory();
+        }
         saveScrollPosition();
         breadCrumbs.setActiveOrAdd(crumb, false);
         if (addToHistory) {
@@ -195,7 +202,7 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     private void setUpAdapter() {
-        adapter = new SongFileAdapter(getMainActivity(), new LinkedList<File>(), R.layout.item_list, this, this);
+        adapter = new DocumentsAdapter(getMainActivity(), new LinkedList<DocumentInfo>(), R.layout.item_list, this, this);
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onChanged() {
@@ -236,7 +243,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     @NonNull
     @Override
     public MaterialCab openCab(int menuRes, MaterialCab.Callback callback) {
-        if (cab != null && cab.isActive()) cab.finish();
+        if (cab != null && cab.isActive()) {
+            cab.finish();
+        }
         cab = new MaterialCab(getMainActivity(), R.id.cab_stub)
                 .setMenu(menuRes)
                 .setCloseDrawableRes(R.drawable.ic_close_white_24dp)
@@ -262,8 +271,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_go_to_start_directory:
-                setCrumb(new BreadCrumbLayout.Crumb(tryGetCanonicalFile(PreferenceUtil.getInstance(getActivity()).getStartDirectory())), true);
+                setCrumb(new BreadCrumbLayout.Crumb(tryGetCanonicalFile(PreferenceUtil.getInstance(getActivity()).getDocumentDirectory())), true);
                 return true;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
@@ -274,8 +284,7 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     public static File getDefaultStartDirectory() {
-        File musicDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
-//        File musicDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File musicDir = Environment.getExternalStorageDirectory();
         File startFolder;
         if (musicDir.exists() && musicDir.isDirectory()) {
             startFolder = musicDir;
@@ -291,11 +300,16 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     @Override
-    public void onFileSelected(File file) {
-        file = tryGetCanonicalFile(file); // important as we compare the path value later
+    public void onFileSelected(DocumentInfo documentInfo) {
+
+        File file = new File(documentInfo.getFilePath()); // important as we compare the path value later
         if (file.isDirectory()) {
             setCrumb(new BreadCrumbLayout.Crumb(file), true);
         } else {
+            if (!documentInfo.isMusic()) {
+                return;
+            }
+
             FileFilter fileFilter = pathname -> !pathname.isDirectory() && getFileFilter().accept(pathname);
             new ListSongsAsyncTask(getActivity(), file, (songs, extra) -> {
                 File file1 = (File) extra;
@@ -320,15 +334,19 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     @Override
-    public void onMultipleItemAction(MenuItem item, ArrayList<File> files) {
+    public void onMultipleItemAction(MenuItem item, ArrayList<DocumentInfo> files) {
         final int itemId = item.getItemId();
-        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(files, getFileFilter(), getFileComparator()));
+        ArrayList<File> list = new ArrayList<>(files.size());
+        for (DocumentInfo info : files) {
+            list.add(new File(info.getFilePath()));
+        }
+        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(list, getFileFilter(), getFileComparator()));
     }
 
     @Override
-    public void onFileMenuClicked(final File file, View view) {
+    public void onFileMenuClicked(final DocumentInfo file, View view) {
         PopupMenu popupMenu = new PopupMenu(getActivity(), view);
-        if (file.isDirectory()) {
+        if (file.isDir()) {
             popupMenu.inflate(R.menu.menu_item_directory);
             popupMenu.setOnMenuItemClickListener(item -> {
                 final int itemId = item.getItemId();
@@ -337,15 +355,16 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
                     case R.id.action_add_to_current_playing:
                     case R.id.action_add_to_playlist:
                     case R.id.action_delete_from_device:
-                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(file), getFileFilter(), getFileComparator()));
+                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongsMenuHelper.handleMenuClick(getActivity(), songs, itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(new File(file.getFilePath())), getFileFilter(), getFileComparator()));
                         return true;
                     case R.id.action_set_as_start_directory:
-                        PreferenceUtil.getInstance(getActivity()).setStartDirectory(file);
-                        Toast.makeText(getActivity(), String.format(getString(R.string.new_start_directory), file.getPath()), Toast.LENGTH_SHORT).show();
+                        PreferenceUtil.getInstance(getActivity()).setDocumentDirectory(file.getFilePath());
+                        Toast.makeText(getActivity(), String.format(getString(R.string.new_start_directory), file.getFilePath()), Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.action_scan:
-                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(file, getFileFilter()));
+                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(new File(file.getFilePath()), getFileFilter()));
                         return true;
+                    default:
                 }
                 return false;
             });
@@ -364,11 +383,12 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
                     case R.id.action_details:
                     case R.id.action_set_as_ringtone:
                     case R.id.action_delete_from_device:
-                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongMenuHelper.handleMenuClick(getActivity(), songs.get(0), itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(file), getFileFilter(), getFileComparator()));
+                        new ListSongsAsyncTask(getActivity(), null, (songs, extra) -> SongMenuHelper.handleMenuClick(getActivity(), songs.get(0), itemId)).execute(new ListSongsAsyncTask.LoadingInfo(toList(new File(file.getFilePath())), getFileFilter(), getFileComparator()));
                         return true;
                     case R.id.action_scan:
-                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(file, getFileFilter()));
+                        new ListPathsAsyncTask(getActivity(), paths -> scanPaths(paths)).execute(new ListPathsAsyncTask.LoadingInfo(new File(file.getFilePath()), getFileFilter()));
                         return true;
+                    default:
                 }
                 return false;
             });
@@ -429,7 +449,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     private void scanPaths(@Nullable String[] toBeScanned) {
-        if (getActivity() == null) return;
+        if (getActivity() == null) {
+            return;
+        }
         if (toBeScanned == null || toBeScanned.length < 1) {
             Toast.makeText(getActivity(), R.string.nothing_to_scan, Toast.LENGTH_SHORT).show();
         } else {
@@ -437,7 +459,7 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
         }
     }
 
-    private void updateAdapter(@NonNull List<File> files) {
+    private void updateAdapter(@NonNull List<DocumentInfo> files) {
         adapter.swapDataSet(files);
         BreadCrumbLayout.Crumb crumb = getActiveCrumb();
         if (crumb != null && recyclerView != null) {
@@ -446,21 +468,21 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     }
 
     @Override
-    public Loader<List<File>> onCreateLoader(int id, Bundle args) {
+    public Loader<List<DocumentInfo>> onCreateLoader(int id, Bundle args) {
         return new AsyncFileLoader(this);
     }
 
     @Override
-    public void onLoadFinished(Loader<List<File>> loader, List<File> data) {
+    public void onLoadFinished(Loader<List<DocumentInfo>> loader, List<DocumentInfo> data) {
         updateAdapter(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<List<File>> loader) {
-        updateAdapter(new LinkedList<File>());
+    public void onLoaderReset(Loader<List<DocumentInfo>> loader) {
+        updateAdapter(new LinkedList<DocumentInfo>());
     }
 
-    private static class AsyncFileLoader extends WrappedAsyncTaskLoader<List<File>> {
+    private static class AsyncFileLoader extends WrappedAsyncTaskLoader<List<DocumentInfo>> {
         private WeakReference<DocumentsFragment> fragmentWeakReference;
 
         public AsyncFileLoader(DocumentsFragment foldersFragment) {
@@ -469,8 +491,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
         }
 
         @Override
-        public List<File> loadInBackground() {
+        public List<DocumentInfo> loadInBackground() {
             DocumentsFragment foldersFragment = fragmentWeakReference.get();
+            List<DocumentInfo> list = new LinkedList<>();
             File directory = null;
             if (foldersFragment != null) {
                 BreadCrumbLayout.Crumb crumb = foldersFragment.getActiveCrumb();
@@ -481,7 +504,15 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
             if (directory != null) {
                 List<File> files = FileUtil.listFiles(directory, foldersFragment.getFileFilter());
                 Collections.sort(files, foldersFragment.getFileComparator());
-                return files;
+                for (File f : files) {
+                    DocumentInfo info = new DocumentInfo();
+                    info.setFilePath(f.getAbsolutePath());
+                    info.setFileName(f.getName());
+                    info.setDir(f.isDirectory());
+                    info.setFileType(DocumentInfo.getFileTypeFromPath(f.getAbsolutePath()));
+                    list.add(info);
+                }
+                return list;
             } else {
                 return new LinkedList<>();
             }
@@ -513,14 +544,16 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
                 LoadingInfo info = params[0];
                 List<File> files = FileUtil.listFilesDeep(info.files, info.fileFilter);
 
-                if (isCancelled() || checkContextReference() == null || checkCallbackReference() == null)
+                if (isCancelled() || checkContextReference() == null || checkCallbackReference() == null) {
                     return null;
+                }
 
                 Collections.sort(files, info.fileComparator);
 
                 Context context = checkContextReference();
-                if (isCancelled() || context == null || checkCallbackReference() == null)
+                if (isCancelled() || context == null || checkCallbackReference() == null) {
                     return null;
+                }
 
                 return FileUtil.matchFilesWithMediaStore(context, files);
             } catch (Exception e) {
@@ -534,8 +567,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
         protected void onPostExecute(ArrayList<Song> songs) {
             super.onPostExecute(songs);
             OnSongsListedCallback callback = checkCallbackReference();
-            if (songs != null && callback != null && !songs.isEmpty())
+            if (songs != null && callback != null && !songs.isEmpty()) {
                 callback.onSongsListed(songs, extra);
+            }
         }
 
         private Context checkContextReference() {
@@ -574,7 +608,7 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
     private static class ListPathsAsyncTask extends ListingFilesDialogAsyncTask<ListPathsAsyncTask.LoadingInfo, String, String[]> {
         private WeakReference<OnPathsListedCallback> onPathsListedCallbackWeakReference;
 
-        public ListPathsAsyncTask(Context context, OnPathsListedCallback callback) {
+        ListPathsAsyncTask(Context context, OnPathsListedCallback callback) {
             super(context);
             onPathsListedCallbackWeakReference = new WeakReference<>(callback);
         }
@@ -588,7 +622,9 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
         @Override
         protected String[] doInBackground(LoadingInfo... params) {
             try {
-                if (isCancelled() || checkCallbackReference() == null) return null;
+                if (isCancelled() || checkCallbackReference() == null) {
+                    return null;
+                }
 
                 LoadingInfo info = params[0];
 
@@ -597,14 +633,18 @@ public class DocumentsFragment extends AbsMainActivityFragment implements MainAc
                 if (info.file.isDirectory()) {
                     List<File> files = FileUtil.listFilesDeep(info.file, info.fileFilter);
 
-                    if (isCancelled() || checkCallbackReference() == null) return null;
+                    if (isCancelled() || checkCallbackReference() == null) {
+                        return null;
+                    }
 
                     paths = new String[files.size()];
                     for (int i = 0; i < files.size(); i++) {
                         File f = files.get(i);
                         paths[i] = FileUtil.safeGetCanonicalPath(f);
 
-                        if (isCancelled() || checkCallbackReference() == null) return paths;
+                        if (isCancelled() || checkCallbackReference() == null) {
+                            return paths;
+                        }
                     }
                 } else {
                     paths = new String[1];

@@ -83,6 +83,7 @@ public abstract class AbsPlayerFragment extends AbsMusicServiceFragment implemen
             case R.id.action_go_to_artist:
                 NavigationUtil.goToArtist(getActivity(), song.artistId);
                 return true;
+            default:
         }
         return false;
     }
@@ -100,7 +101,9 @@ public abstract class AbsPlayerFragment extends AbsMusicServiceFragment implemen
     }
 
     protected void showToolbar(@Nullable final View toolbar) {
-        if (toolbar == null) return;
+        if (toolbar == null) {
+            return;
+        }
 
         setToolbarShown(true);
 
@@ -109,7 +112,9 @@ public abstract class AbsPlayerFragment extends AbsMusicServiceFragment implemen
     }
 
     protected void hideToolbar(@Nullable final View toolbar) {
-        if (toolbar == null) return;
+        if (toolbar == null) {
+            return;
+        }
 
         setToolbarShown(false);
 

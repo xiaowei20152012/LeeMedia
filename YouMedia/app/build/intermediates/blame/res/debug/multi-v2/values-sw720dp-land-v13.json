@@ -1,21 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/liwei/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
-            "map": [
-                {
-                    "source": "/Users/liwei/.gradle/caches/transforms-1/files-1.1/core-0.9.6.0.aar/36f68fdbdae3c5b4af7ff4db4c2df943/res/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "51",
-                        "endOffsets": "102"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/wei.li/Documents/github/LeeMedia/YouMedia/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
             "map": [
                 {

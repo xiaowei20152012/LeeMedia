@@ -229,15 +229,6 @@
         <activity android:name="com.umedia.android.ui.activities.PurchaseActivity" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.umedia.android"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-        <provider
             android:name="com.crashlytics.android.CrashlyticsInitProvider"
             android:authorities="com.umedia.android.crashlyticsinitprovider"
             android:exported="false"
@@ -339,6 +330,16 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.umedia.android"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
         <activity android:name="com.kabouzeid.appthemehelper.common.ATHToolbarActivity" />
         <activity android:name="com.kabouzeid.appthemehelper.ATHActivity" />

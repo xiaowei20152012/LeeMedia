@@ -203,7 +203,9 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             menu.removeItem(R.id.action_colored_footers);
         }
         Activity activity = getActivity();
-        if (activity == null) return;
+        if (activity == null) {
+            return;
+        }
         ToolbarContentTintHelper.handleOnCreateOptionsMenu(getActivity(), toolbar, menu, ATHToolbarActivity.getToolbarBackgroundColor(toolbar));
     }
 
@@ -211,7 +213,9 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         Activity activity = getActivity();
-        if (activity == null) return;
+        if (activity == null) {
+            return;
+        }
         ToolbarContentTintHelper.handleOnPrepareOptionsMenu(activity, toolbar);
     }
 
@@ -244,6 +248,8 @@ public class LibraryFragment extends AbsMainActivityFragment implements CabHolde
             case R.id.action_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));
                 return true;
+            case R.id.action_music_exit:
+                MusicPlayerRemote.clearQueue();
             default:
         }
         return super.onOptionsItemSelected(item);

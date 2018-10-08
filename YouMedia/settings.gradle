@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':javalib'
+include ':app', ':commonlib', ':javalib', ':lzhplay'

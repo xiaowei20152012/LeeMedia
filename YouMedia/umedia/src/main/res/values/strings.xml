@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">UMedia</string>
-    <string name="permissions_denied">permissions denied</string>
-    <string name="action_grant">action grant</string>
-    <string name="action_settings">action settings</string>
-</resources>

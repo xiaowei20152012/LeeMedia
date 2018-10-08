@@ -43,6 +43,7 @@ import com.umedia.android.service.MusicService;
 import com.umedia.android.ui.activities.base.AbsSlidingMusicPanelActivity;
 import com.umedia.android.ui.activities.intro.AppIntroActivity;
 //import com.umedia.android.ui.fragments.mainactivity.files.FilesFragment;
+import com.umedia.android.ui.fragments.mainactivity.files.DocumentsFragment;
 import com.umedia.android.ui.fragments.mainactivity.folders.FoldersFragment;
 import com.umedia.android.ui.fragments.mainactivity.library.LibraryFragment;
 import com.umedia.android.util.DeviceUtil;
@@ -62,7 +63,7 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     public static final int PURCHASE_REQUEST = 101;
 
     private static final int MUSIC = 1;
-    private static final int VIDEO = 2;
+    private static final int DOCUMENTS = 2;
     private static final int FOLDERS = 0;
 
     @BindView(R.id.navigation_view)
@@ -135,10 +136,10 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
                 navigationView.setCheckedItem(R.id.nav_folders);
                 setCurrentFragment(FoldersFragment.newInstance(this));
                 break;
-//            case VIDEO:
-//                navigationView.setCheckedItem(R.id.nav_files);
-//                setCurrentFragment(FilesFragment.newInstance());
-//                break;
+            case DOCUMENTS:
+                navigationView.setCheckedItem(R.id.nav_documents);
+                setCurrentFragment(DocumentsFragment.newInstance(this));
+                break;
             default:
         }
     }
@@ -199,9 +200,9 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
                 case R.id.nav_folders:
                     new Handler().postDelayed(() -> setMusicChooser(FOLDERS), 200);
                     break;
-//                case R.id.nav_files:
-//                    new Handler().postDelayed(() -> setMusicChooser(VIDEO),200);
-//                    break;
+                case R.id.nav_documents:
+                    new Handler().postDelayed(() -> setMusicChooser(DOCUMENTS), 200);
+                    break;
                 case R.id.buy_pro:
                     new Handler().postDelayed(() -> startActivityForResult(new Intent(MainActivity.this, PurchaseActivity.class), PURCHASE_REQUEST), 200);
                     break;

@@ -28,9 +28,9 @@ public final class R {
         public static final int item_touch_helper_swipe_escape_velocity = 0x7f0700a8;
     }
     public static final class id {
-        public static final int adjacent = 0x7f09004f;
-        public static final int center = 0x7f090071;
-        public static final int item_touch_helper_previous_elevation = 0x7f0900dd;
+        public static final int adjacent = 0x7f090050;
+        public static final int center = 0x7f090072;
+        public static final int item_touch_helper_previous_elevation = 0x7f0900de;
     }
     public static final class styleable {
         public static final int[] FastScrollRecyclerView = { 0x7f0400ca, 0x7f0400cb, 0x7f0400cf, 0x7f0400d0, 0x7f0400d1, 0x7f0400d2, 0x7f0400d3, 0x7f0400d4, 0x7f0400d5 };

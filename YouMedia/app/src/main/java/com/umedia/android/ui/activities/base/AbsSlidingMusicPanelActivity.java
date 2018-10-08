@@ -178,7 +178,9 @@ public abstract class AbsSlidingMusicPanelActivity extends AbsMusicServiceActivi
     }
 
     private void setMiniPlayerAlphaProgress(@FloatRange(from = 0, to = 1) float progress) {
-        if (miniPlayerFragment.getView() == null) return;
+        if (miniPlayerFragment.getView() == null) {
+            return;
+        }
         float alpha = 1 - progress;
         miniPlayerFragment.getView().setAlpha(alpha);
         // necessary to make the views below clickable
@@ -217,13 +219,15 @@ public abstract class AbsSlidingMusicPanelActivity extends AbsMusicServiceActivi
 
     @Override
     public void onBackPressed() {
-        if (!handleBackPress())
+        if (!handleBackPress()) {
             super.onBackPressed();
+        }
     }
 
     public boolean handleBackPress() {
-        if (slidingUpPanelLayout.getPanelHeight() != 0 && playerFragment.onBackPressed())
+        if (slidingUpPanelLayout.getPanelHeight() != 0 && playerFragment.onBackPressed()) {
             return true;
+        }
         if (getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
             collapsePanel();
             return true;

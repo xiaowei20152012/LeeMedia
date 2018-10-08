@@ -13,6 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import com.umedia.android.R;
 import com.umedia.android.helper.SortOrder;
 import com.umedia.android.model.CategoryInfo;
+import com.umedia.android.ui.fragments.mainactivity.files.DocumentsFragment;
 import com.umedia.android.ui.fragments.mainactivity.folders.FoldersFragment;
 import com.umedia.android.ui.fragments.player.NowPlayingScreen;
 
@@ -75,6 +76,7 @@ public final class PreferenceUtil {
     public static final String AUTO_DOWNLOAD_IMAGES_POLICY = "auto_download_images_policy";
 
     public static final String START_DIRECTORY = "start_directory";
+    public static final String DOCUMENT_DIRECTORY = "start_directory";
 
     public static final String SYNCHRONIZED_LYRICS_SHOW = "synchronized_lyrics_show";
 
@@ -420,6 +422,16 @@ public final class PreferenceUtil {
     public void setStartDirectory(File file) {
         final SharedPreferences.Editor editor = mPreferences.edit();
         editor.putString(START_DIRECTORY, FileUtil.safeGetCanonicalPath(file));
+        editor.apply();
+    }
+
+    public final File getDocumentDirectory() {
+        return new File(mPreferences.getString(DOCUMENT_DIRECTORY, DocumentsFragment.getDefaultStartDirectory().getPath()));
+    }
+
+    public void setDocumentDirectory(String file) {
+        final SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putString(DOCUMENT_DIRECTORY, file);
         editor.apply();
     }
 
