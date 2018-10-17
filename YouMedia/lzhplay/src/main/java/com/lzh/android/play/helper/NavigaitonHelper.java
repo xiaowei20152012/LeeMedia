@@ -5,11 +5,16 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.commonlib.util.PreferencesUtils;
 import com.lzh.android.play.MainActivity;
 import com.lzh.android.play.R;
+import com.lzh.android.play.util.AssertUtil;
 import com.lzh.android.play.util.Const;
 import com.lzh.android.play.util.PreferenceKey;
 
@@ -21,6 +26,11 @@ public class NavigaitonHelper {
     private final MainActivity activity;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private ImageView navHeaderImageView;
+    private TextView navHeaderTitle;
+    private TextView navHeaderContent;
+    private View navHeaderBottom;
+
     private int idNavCamera;
     private int idNavGallery;
     private int idNavSlideshow;
@@ -51,6 +61,11 @@ public class NavigaitonHelper {
         toggle.syncState();
 
         navigationView = (NavigationView) activity.findViewById(R.id.nav_view);
+        navHeaderImageView = navigationView.findViewById(R.id.nav_header_imageView);
+        navHeaderTitle = navigationView.findViewById(R.id.nav_header_title);
+        navHeaderContent = navigationView.findViewById(R.id.nav_header_content);
+        navHeaderBottom = navigationView.findViewById(R.id.nav_header_bottom);
+
         navigationView.setNavigationItemSelectedListener(activity);
         checkMenu(PreferencesUtils.getInt(activity, PreferenceKey.KEY_MENU));
     }
@@ -73,6 +88,8 @@ public class NavigaitonHelper {
             resetMenu(Const.MENU_SHARE);
         } else if (id == idNavSend) {
             resetMenu(Const.MENU_SEND);
+        } else {
+            resetMenu(Const.MENU_CAMERA);
         }
         navigationView.setCheckedItem(id);
 
@@ -96,7 +113,7 @@ public class NavigaitonHelper {
         return false;
     }
 
-    public boolean onHandlePressed() {
+    public boolean handleBackPress() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
             return true;
@@ -126,6 +143,32 @@ public class NavigaitonHelper {
         } else if (select == Const.MENU_SEND) {
             navigationView.setCheckedItem(idNavSend);
 
+        } else {
+            navigationView.setCheckedItem(idNavCamera);
+
+        }
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void setHeaderView(String url, String title, String content) {
+        if (AssertUtil.isEmpty(url)) {
+
+        } else {
+
+        }
+        if (AssertUtil.isEmpty(title)) {
+            navHeaderBottom.setVisibility(View.GONE);
+            navHeaderTitle.setText("");
+        } else {
+            navHeaderBottom.setVisibility(View.VISIBLE);
+            navHeaderTitle.setText(title);
+        }
+        if (AssertUtil.isEmpty(content)) {
+            navHeaderContent.setText("");
+        } else {
+            navHeaderContent.setText(content);
         }
     }
 }
