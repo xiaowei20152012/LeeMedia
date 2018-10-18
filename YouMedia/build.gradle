@@ -10,13 +10,14 @@ buildscript {
     }
 }
 
+
 allprojects {
     repositories {
         //add ali mirror
         def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public'
         def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
         all { ArtifactRepository repo ->
-            if(repo instanceof MavenArtifactRepository){
+            if (repo instanceof MavenArtifactRepository) {
                 def url = repo.url.toString()
                 if (url.startsWith('https://repo1.maven.org/maven2')) {
                     project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
@@ -39,4 +40,32 @@ allprojects {
         google()
         maven { url "https://jitpack.io" }
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+
+
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    minSdkVersion = 16
+    targetSdkVersion = 27
+
+    versionCode = 1
+    versionName = "1.0"
+
+    // App dependencies
+    constaintLayout = '1.1.3'
+    junit = '4.12'
+    runner = '1.0.2'
+    espressoCore = '3.0.2'
+    supportLibVersion = '27.0.2'
+    materialDialogs = '0.9.6.0'
+    materialCab = '0.1.12'
+    appThemeHelper = '1.3.7'
+    fastScroll = '1.0.16-kmod'
+
 }

@@ -8,10 +8,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commonlib" />
+            <option value="$PROJECT_DIR$/folderlibrary" />
             <option value="$PROJECT_DIR$/javalib" />
             <option value="$PROJECT_DIR$/lzhplay" />
+            <option value="$PROJECT_DIR$/musiclibrary" />
+            <option value="$PROJECT_DIR$/videolibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
