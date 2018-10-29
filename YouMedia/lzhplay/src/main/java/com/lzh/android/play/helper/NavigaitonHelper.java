@@ -1,6 +1,7 @@
 package com.lzh.android.play.helper;
 
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.commonlib.folders.FileChooserActivity;
 import com.commonlib.util.PreferencesUtils;
 import com.lzh.android.play.MainActivity;
 import com.lzh.android.play.R;
@@ -61,11 +63,11 @@ public class NavigaitonHelper {
         toggle.syncState();
 
         navigationView = (NavigationView) activity.findViewById(R.id.nav_view);
-        navHeaderImageView = navigationView.findViewById(R.id.nav_header_imageView);
-        navHeaderTitle = navigationView.findViewById(R.id.nav_header_title);
-        navHeaderContent = navigationView.findViewById(R.id.nav_header_content);
-        navHeaderBottom = navigationView.findViewById(R.id.nav_header_bottom);
-
+        navHeaderImageView = activity.findViewById(R.id.nav_header_imageView);
+        navHeaderTitle = activity.findViewById(R.id.nav_header_title);
+        navHeaderContent = activity.findViewById(R.id.nav_header_content);
+        navHeaderBottom = activity.findViewById(R.id.nav_header_bottom);
+        setHeaderView(null, null, null);
         navigationView.setNavigationItemSelectedListener(activity);
         checkMenu(PreferencesUtils.getInt(activity, PreferenceKey.KEY_MENU));
     }
@@ -86,6 +88,7 @@ public class NavigaitonHelper {
             resetMenu(Const.MENU_MANAGE);
         } else if (id == idNavShare) {
             resetMenu(Const.MENU_SHARE);
+            activity.startActivity(new Intent(activity,FileChooserActivity.class));
         } else if (id == idNavSend) {
             resetMenu(Const.MENU_SEND);
         } else {
@@ -159,16 +162,16 @@ public class NavigaitonHelper {
 
         }
         if (AssertUtil.isEmpty(title)) {
-            navHeaderBottom.setVisibility(View.GONE);
-            navHeaderTitle.setText("");
+//            navHeaderBottom.setVisibility(View.GONE);
+//            navHeaderTitle.setText("");
         } else {
-            navHeaderBottom.setVisibility(View.VISIBLE);
-            navHeaderTitle.setText(title);
+//            navHeaderBottom.setVisibility(View.VISIBLE);
+//            navHeaderTitle.setText(title);
         }
         if (AssertUtil.isEmpty(content)) {
-            navHeaderContent.setText("");
+//            navHeaderContent.setText("");
         } else {
-            navHeaderContent.setText(content);
+//            navHeaderContent.setText(content);
         }
     }
 }

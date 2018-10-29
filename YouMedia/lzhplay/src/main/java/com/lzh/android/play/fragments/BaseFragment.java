@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseFragment extends Fragment {
+import com.lzh.android.play.helper.FragmentHelper;
+
+public class BaseFragment extends Fragment implements FragmentHelper.FagmentCallback{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,10 +26,20 @@ public class BaseFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+
+        } else {
+
+        }
     }
 
     @Override
     public boolean getUserVisibleHint() {
         return super.getUserVisibleHint();
+    }
+
+    @Override
+    public boolean handleBackPress() {
+        return false;
     }
 }
