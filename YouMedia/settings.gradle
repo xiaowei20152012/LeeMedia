@@ -1,2 +1,2 @@
-include ':lzhplay', ':commonlib', ':javalib', ':musiclibrary', ':folderlibrary', ':videolibrary'
-//include ':app', ':commonlib', ':javalib', ':lzhplay'
+//include ':lzhplay', ':commonlib', ':javalib', ':musiclibrary', ':folderlibrary', ':videolibrary'
+include ':app', ':commonlib', ':javalib', ':lzhplay'
