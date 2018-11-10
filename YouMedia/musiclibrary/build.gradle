@@ -1,19 +1,22 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
 
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
 
     buildTypes {
         release {
@@ -22,13 +25,26 @@ android {
         }
     }
 
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
-
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constaintLayout"
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runner"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoCore"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:gridlayout-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:palette-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:design:$rootProject.supportLibVersion"
+    implementation "com.afollestad.material-dialogs:core:$rootProject.materialDialogs"
+    implementation "com.afollestad.material-dialogs:commons:$rootProject.materialDialogs"
+    implementation "com.afollestad:material-cab:$rootProject.materialCab"
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.github.kabouzeid:app-theme-helper:$rootProject.appThemeHelper"
+    implementation "com.github.kabouzeid:RecyclerView-FastScroll:$rootProject.fastScroll"
 }

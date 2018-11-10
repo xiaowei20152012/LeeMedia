@@ -84,11 +84,11 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        LocalFileDataSource.getInstance().loadData(this);
-        final Fabric fabric = new Fabric.Builder(this)
-                .kits(new Crashlytics())
-                .debuggable(true)           // Enables Crashlytics debugger
-                .build();
-        Fabric.with(fabric);
+//        final Fabric fabric = new Fabric.Builder(this)
+//                .kits(new Crashlytics())
+//                .debuggable(true)           // Enables Crashlytics debugger
+//                .build();
+//        Fabric.with(fabric);
 
         ButterKnife.bind(this);
         DeviceUtil.getNetworkOperatorName(this);

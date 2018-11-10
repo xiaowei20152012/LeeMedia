@@ -26,7 +26,7 @@ public class App extends Application {
 
     private static App app;
 
-    private BillingProcessor billingProcessor;
+//    private BillingProcessor billingProcessor;
 
     @Override
     public void onCreate() {
@@ -57,9 +57,9 @@ public class App extends Application {
                 .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
                 .build();
         if (!BuildConfig.DEBUG) {
-            Fabric.with(this, crashlyticsKit, new Answers());
+//            Fabric.with(this, crashlyticsKit, new Answers());
         } else {
-            Fabric.with(this, crashlyticsKit, new Crashlytics(), new Crashlytics()); // crashlytics kit is disabled here
+//            Fabric.with(this, crashlyticsKit, new Crashlytics(), new Crashlytics()); // crashlytics kit is disabled here
         }
 
         // Set up dynamic shortcuts
@@ -68,28 +68,29 @@ public class App extends Application {
         }
 
         // automatically restores purchases
-        billingProcessor = new BillingProcessor(this, App.GOOGLE_PLAY_LICENSE_KEY, new BillingProcessor.IBillingHandler() {
-            @Override
-            public void onProductPurchased(String productId, TransactionDetails details) {
-            }
-
-            @Override
-            public void onPurchaseHistoryRestored() {
-//                Toast.makeText(App.this, R.string.restored_previous_purchase_please_restart, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onBillingError(int errorCode, Throwable error) {
-            }
-
-            @Override
-            public void onBillingInitialized() {
-            }
-        });
+//        billingProcessor = new BillingProcessor(this, App.GOOGLE_PLAY_LICENSE_KEY, new BillingProcessor.IBillingHandler() {
+//            @Override
+//            public void onProductPurchased(String productId, TransactionDetails details) {
+//            }
+//
+//            @Override
+//            public void onPurchaseHistoryRestored() {
+////                Toast.makeText(App.this, R.string.restored_previous_purchase_please_restart, Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onBillingError(int errorCode, Throwable error) {
+//            }
+//
+//            @Override
+//            public void onBillingInitialized() {
+//            }
+//        });
     }
 
     public static boolean isProVersion() {
-        return BuildConfig.DEBUG || app.billingProcessor.isPurchased(PRO_VERSION_PRODUCT_ID);
+//        return BuildConfig.DEBUG || app.billingProcessor.isPurchased(PRO_VERSION_PRODUCT_ID);
+        return false;
     }
 
     public static App getInstance() {
@@ -99,7 +100,7 @@ public class App extends Application {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        billingProcessor.release();
+//        billingProcessor.release();
     }
 
 

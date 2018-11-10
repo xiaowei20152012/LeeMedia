@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         // Add this line google services
-        classpath 'com.google.gms:google-services:3.1.0'
+//        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -62,7 +62,7 @@ ext {
     junit = '4.12'
     runner = '1.0.2'
     espressoCore = '3.0.2'
-    supportLibVersion = '27.0.2'
+    supportLibVersion = '27.1.1'
     materialDialogs = '0.9.6.0'
     materialCab = '0.1.12'
     appThemeHelper = '1.3.7'

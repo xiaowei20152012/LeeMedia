@@ -46,5 +46,8 @@ dependencies {
     implementation "com.afollestad:material-cab:$rootProject.materialCab"
     implementation "com.github.kabouzeid:app-theme-helper:$rootProject.appThemeHelper"
     implementation "com.github.kabouzeid:RecyclerView-FastScroll:$rootProject.fastScroll"
-    implementation project(':commonlib')
+        implementation project(':commonlib')
+//    implementation project(':folderlibrary')
+//    implementation project(':musiclibrary')
+//    implementation project(':videolibrary')
 }
