@@ -6,8 +6,7 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
-
-
+    <dimen name="music_bottom_height">48dp</dimen>
 
 
     <dimen name="text_normal_title">16sp</dimen>
